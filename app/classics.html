@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>California Whitewater Classics</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --surface-hover: #253349;
+    --border: #334155;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --iii: #22d3ee;
+    --iii-bg: rgba(34,211,238,0.08);
+    --iv: #f59e0b;
+    --iv-bg: rgba(245,158,11,0.08);
+    --v: #ef4444;
+    --v-bg: rgba(239,68,68,0.08);
+    --tier1: #fbbf24;
+    --tier2: #a3a3a3;
+    --tier3: #92400e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  header p {
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .filters button {
+    background: var(--surface);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .filters button:hover { background: var(--surface-hover); color: var(--text); }
+  .filters button.active { color: #fff; font-weight: 600; }
+  .filters button.active[data-filter="all"] { background: #6366f1; border-color: #6366f1; }
+  .filters button.active[data-filter="iii"] { background: #0891b2; border-color: #0891b2; }
+  .filters button.active[data-filter="iv"] { background: #d97706; border-color: #d97706; }
+  .filters button.active[data-filter="v"] { background: #dc2626; border-color: #dc2626; }
+
+  main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+  .grade-section { margin-bottom: 2.5rem; }
+
+  .grade-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .grade-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .grade-iii .grade-badge { background: var(--iii); color: #0f172a; }
+  .grade-iv .grade-badge { background: var(--iv); color: #0f172a; }
+  .grade-v .grade-badge { background: var(--v); color: #fff; }
+
+  .grade-header h2 { font-size: 1.15rem; font-weight: 600; }
+
+  .tier-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 1.25rem 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tier-label .dot {
+    width: 8px; height: 8px; border-radius: 50%; display: inline-block;
+  }
+
+  .tier-label.t1 { color: var(--tier1); }
+  .tier-label.t1 .dot { background: var(--tier1); }
+  .tier-label.t2 { color: var(--tier2); }
+  .tier-label.t2 .dot { background: var(--tier2); }
+  .tier-label.t3 { color: var(--tier3); }
+  .tier-label.t3 .dot { background: var(--tier3); }
+
+  .run-list { list-style: none; }
+
+  .run {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 1rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    transition: background 0.1s;
+  }
+
+  .run:hover { background: var(--surface); }
+
+  .grade-iii .run:hover { background: var(--iii-bg); }
+  .grade-iv .run:hover { background: var(--iv-bg); }
+  .grade-v .run:hover { background: var(--v-bg); }
+
+  .run-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .run-meta {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .run-desc {
+    grid-column: 1 / -1;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .run-style {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    margin-left: 0.25rem;
+    vertical-align: middle;
+  }
+
+  .note {
+    color: #fb923c;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+
+  .count-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .count-bar span { font-weight: 600; }
+
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.5rem; }
+    .run { grid-template-columns: 1fr; }
+    .run-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>California Whitewater Classics</h1>
+  <p>Curated runs rated by cross-source agreement. Ratings reflect kayaker consensus, not single-source labels.</p>
+</header>
+
+<div class="filters">
+  <button class="active" data-filter="all">All Classes</button>
+  <button data-filter="iii">Class III</button>
+  <button data-filter="iv">Class IV</button>
+  <button data-filter="v">Class V</button>
+</div>
+
+<div class="count-bar">
+  <div>Class III: <span>25</span></div>
+  <div>Class IV: <span>24</span></div>
+  <div>Class V: <span>29</span></div>
+</div>
+
+<main>
+
+<!-- ========== CLASS III ========== -->
+<section class="grade-section grade-iii" data-grade="iii">
+  <div class="grade-header">
+    <div class="grade-badge">III</div>
+    <h2>Class III Classics</h2>
+  </div>
+
+  <div class="tier-label t1"><span class="dot"></span>Tier 1 &mdash; Iconic / Must-Do</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">South Fork American</div>
+      <div class="run-meta">III+ &middot; 15 mi</div>
+      <div class="run-desc">Chili Bar, Coloma-to-Lotus, and The Gorge. Most-paddled III in California. Dam-released May&ndash;Sep. Meatgrinder, Troublemaker, Satan's Cesspool, Hospital Bar.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Middle Fork American &mdash; Oxbow to Greenwood</div>
+      <div class="run-meta">II-IV &middot; 17 mi</div>
+      <div class="run-desc">Continuous III with Tunnel Chute (IV) at mile 1. Dam-released, summer-friendly. Gorgeous canyon.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Upper Sacramento &mdash; Box Canyon to Sims</div>
+      <div class="run-meta">III-IV &middot; 22 mi</div>
+      <div class="run-desc">Granite pool-drop under Castle Crags. Spring/early summer. Three sections combinable.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">East Fork Carson &mdash; Overnight</div>
+      <div class="run-meta">II+ &middot; 20 mi</div>
+      <div class="run-desc">II+ with III pulses, hot springs, multi-day wilderness feel. The classic Sierra overnight.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Truckee River &mdash; Floriston</div>
+      <div class="run-meta">III &middot; 8 mi</div>
+      <div class="run-desc">Roadside, reliable, continuous read-and-run Class III.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Kings River &mdash; Banzai</div>
+      <div class="run-meta">III-IV &middot; 9.5 mi</div>
+      <div class="run-desc">Garnet Dike to Kirch Flat. Spring snowmelt Sierra classic in a warm canyon.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Klamath &mdash; Hell's Corner</div>
+      <div class="run-meta">III+ &middot; 18 mi</div>
+      <div class="run-desc">Big-water III at Happy Camp. Multi-day option. IV at high flow.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Cache Creek &mdash; Rumsey Canyon</div>
+      <div class="run-meta">III &middot; 9 mi</div>
+      <div class="run-desc">Sacramento/Bay Area winter-spring staple.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Trinity &mdash; Pigeon Point</div>
+      <div class="run-meta">II-III &middot; 24 mi</div>
+      <div class="run-desc">Long season via Lewiston release. Scenic pool-drop III.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Lower Kern &mdash; Jungle Run</div>
+      <div class="run-meta">III/III+ &middot; 7 mi</div>
+      <div class="run-desc">Keysville to Miracle Hot Springs. SoCal's summer III classic, dam-controlled. <span class="note">Below Miracle is IV with V+ portage &mdash; different run.</span></div>
+    </li>
+  </ul>
+
+  <div class="tier-label t2"><span class="dot"></span>Tier 2 &mdash; Regional Classics</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">McCloud &mdash; Ah-Di-Na</div>
+      <div class="run-meta">III-IV &middot; 24 mi</div>
+      <div class="run-desc">Remote wilderness run. Reservoir to Shasta.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Cal Salmon &mdash; South Fork</div>
+      <div class="run-meta">III &middot; 6.5 mi</div>
+      <div class="run-desc">Methodist Creek to Forks. The III section in an otherwise IV-V area.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">South Fork Eel &mdash; Big Bend to Piercy</div>
+      <div class="run-meta">II-III &middot; 21 mi</div>
+      <div class="run-desc">Winter/spring. Redwoods scenery.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Main Eel &mdash; Dos Rios to Alderpoint</div>
+      <div class="run-meta">II-IV &middot; 47 mi</div>
+      <div class="run-desc">Multi-day wilderness. Rain-dependent.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF Feather &mdash; Rock Creek</div>
+      <div class="run-meta">III &middot; 8 mi</div>
+      <div class="run-desc">The genuine Class III NF Feather run. Dam-released summer/fall. One IV&minus; rapid, easily scouted.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Merced &mdash; El Portal to Briceburg</div>
+      <div class="run-meta">III+ to IV+</div>
+      <div class="run-desc">Snowmelt. Rating drifts significantly with CFS. <span class="note">Contains Class V Ned's Gulch.</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Upper Kern &mdash; Camp 3 / Limestone</div>
+      <div class="run-meta">III-V &middot; 17 mi</div>
+      <div class="run-desc">Genuine III segments exist but you must pick-and-choose. Not read-and-run III.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Mokelumne &mdash; Electra Run</div>
+      <div class="run-meta">II-III &middot; 6 mi</div>
+      <div class="run-desc">Class II at normal flows, III only above ~1500 cfs. Closest dam-released run to Sacramento.</div>
+    </li>
+  </ul>
+
+  <div class="tier-label t3"><span class="dot"></span>Tier 3 &mdash; Local Favorites</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">Alameda Creek &mdash; Sunol to Niles</div>
+      <div class="run-meta">III &middot; 4.3 mi</div>
+      <div class="run-desc">Bay Area backyard run. Narrow weather window.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF American &mdash; Shirttail</div>
+      <div class="run-meta">II-III &middot; 5 mi</div>
+      <div class="run-desc">Short, more technical.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Arroyo Seco</div>
+      <div class="run-meta">III &middot; 14.5 mi</div>
+      <div class="run-desc">Coast Range treat. Narrow season.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Little Sur River</div>
+      <div class="run-meta">III-IV &middot; 7 mi</div>
+      <div class="run-desc">Tiny coastal classic.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Goodwin Canyon &mdash; Stanislaus</div>
+      <div class="run-meta">III-IV(V) &middot; 4 mi</div>
+      <div class="run-desc">Borderline for III paddlers. Mr. Toad's Wild Ride at high water is IV+.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Mad River &mdash; Ruth Stretch</div>
+      <div class="run-meta">II-III &middot; 12 mi</div>
+      <div class="run-desc">NorCal locals' run.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Outlet Creek / Tomki Creek</div>
+      <div class="run-meta">II-III / III</div>
+      <div class="run-desc">Winter rain runs, Mendocino.</div>
+    </li>
+  </ul>
+</section>
+
+<!-- ========== CLASS IV ========== -->
+<section class="grade-section grade-iv" data-grade="iv">
+  <div class="grade-header">
+    <div class="grade-badge">IV</div>
+    <h2>Class IV Classics</h2>
+  </div>
+
+  <div class="tier-label t1"><span class="dot"></span>Tier 1 &mdash; Iconic / Must-Do</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">NF American &mdash; Chamberlain Falls</div>
+      <div class="run-meta">IV &middot; 5 mi</div>
+      <div class="run-desc">The canonical CA "first Class IV." Pool-drop. Slaughter's Sluice, Chamberlain Falls IV+, Zig-Zag. Spring/early-summer snowmelt. <span class="run-style">sport IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">MF American &mdash; Oxbow to Greenwood</div>
+      <div class="run-meta">II-IV(V+) &middot; 17 mi</div>
+      <div class="run-desc">Tunnel Chute (IV) and Kanaka Falls (IV+). Dam-released, summer. The III paddler's step-up. <span class="run-style">sport IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Tuolumne Main &mdash; Meral's Pool to Ward's Ferry</div>
+      <div class="run-meta">IV+ &middot; 18 mi</div>
+      <div class="run-desc"><em>The</em> California Class IV overnight. Sustained IV, Clavey Falls IV+. Permit required. <span class="run-style">big-water IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Upper Kern &mdash; Thunder Run / Limestone</div>
+      <div class="run-meta">IV &middot; 17 mi</div>
+      <div class="run-desc">Johnsondale to PH #3. Summer dam-released. Limestone, Joe's Diner, Cable, Buzzard's Perch. IV at 1500&ndash;2500 cfs. <span class="run-style">sport IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Lower Kern &mdash; Miracle to Democrat</div>
+      <div class="run-meta">IV &middot; 12 mi</div>
+      <div class="run-desc">Dam-released summer. Dead Man's Curve, Horseshoe Falls. <span class="note">Mandatory V+ portage at Royal Flush.</span> <span class="run-style">big-water IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Kaweah &mdash; Upper 6 / Gateway</div>
+      <div class="run-meta">IV &middot; 3 mi</div>
+      <div class="run-desc">Gateway, Chute, Osterizer, Suicide Falls. Technical boulder-garden. Snowmelt spring. <span class="run-style">creeky IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Kings &mdash; Banzai</div>
+      <div class="run-meta">III-IV &middot; 9.5 mi</div>
+      <div class="run-desc">Fang Tooth IV+, Mule Rock IV, Banzai IV+. Spring snowmelt, warm canyon. <span class="run-style">sport IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Upper Sac &mdash; Box Canyon to Gibson</div>
+      <div class="run-meta">III-IV &middot; 35 mi</div>
+      <div class="run-desc">Three sections forming a full IV run under Castle Crags. Pool-drop granite. <span class="run-style">sport IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Goodwin Canyon &mdash; Stanislaus</div>
+      <div class="run-meta">IV+ &middot; 4 mi</div>
+      <div class="run-desc">Mr. Toad's Wild Ride, Impaler, Haunted House, Matterhorn. Short, intense &mdash; run it twice. <span class="run-style">creeky IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Klamath Hell's Corner / Trinity at High Water</div>
+      <div class="run-meta">IV &middot; 18 mi</div>
+      <div class="run-desc">Hell's Corner at 2500+ cfs becomes genuine IV. Big-water day trips. <span class="run-style">big-water IV</span></div>
+    </li>
+  </ul>
+
+  <div class="tier-label t2"><span class="dot"></span>Tier 2 &mdash; Regional Classics</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">NF Smith &mdash; Low Divide to Gasquet</div>
+      <div class="run-meta">IV &middot; 13 mi</div>
+      <div class="run-desc">Wilderness IV, serpentine canyon, The Grotto. Rain-dependent winter/spring. <span class="run-style">committing IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF Smith Gorge</div>
+      <div class="run-meta">IV+/V &middot; 1 mi</div>
+      <div class="run-desc">Good Luck, The Boof, The Slot. Crux gorge within a longer III-IV stretch. <span class="run-style">committing IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">MF Smith &mdash; Oregon Hole Gorge</div>
+      <div class="run-meta">IV+/V &middot; 2.3 mi</div>
+      <div class="run-desc">Often paired with SF Gorge for a Smith weekend. <span class="run-style">committing IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF Yuba &mdash; Goodyears Bar to Hwy 49</div>
+      <div class="run-meta">IV &middot; 8.5 mi</div>
+      <div class="run-desc">Spring snowmelt. Technical, sometimes woody. Downieville locals' classic. <span class="run-style">creeky IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF American &mdash; Slab Creek</div>
+      <div class="run-meta">IV-V &middot; 7 mi</div>
+      <div class="run-desc">Dam-released. Big slides, Rock Garden. <span class="run-style">committing IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF Feather &mdash; Tobin / Lobin</div>
+      <div class="run-meta">IV / IV+</div>
+      <div class="run-desc">Tobin is IV with sieve hazards; Lobin is IV+. Dam-released summer/fall. <span class="note">Rating disputed &mdash; McQuoid calls it V.</span> <span class="run-style">creeky IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Pit 5 &mdash; Pit 5 Dam to PH</div>
+      <div class="run-meta">IV &middot; 9 mi</div>
+      <div class="run-desc">Scheduled release. Big-volume basalt canyon near Big Bend. <span class="run-style">big-water IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Pit Falls &mdash; Pit 1</div>
+      <div class="run-meta">IV-V &middot; 7 mi</div>
+      <div class="run-desc">Scheduled release. Pit River Falls ledge. <span class="run-style">big-water IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Merced &mdash; El Portal to Briceburg</div>
+      <div class="run-meta">III+ to IV+</div>
+      <div class="run-desc">Snowmelt. Pick your flow. <span class="note">Contains Class V Ned's Gulch.</span> <span class="run-style">sport IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF Yuba &mdash; Bridgeport Gorge</div>
+      <div class="run-meta">IV-V &middot; 7 mi</div>
+      <div class="run-desc">Technical slotty spring run. <span class="run-style">creeky IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">MF Stanislaus &mdash; Camp 9</div>
+      <div class="run-meta">IV-V &middot; 14 mi</div>
+      <div class="run-desc">Dam-released. Big slides, early season. <span class="run-style">committing IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Upper McCloud &mdash; Fowler to Reservoir</div>
+      <div class="run-meta">III-IV &middot; 10 mi</div>
+      <div class="run-desc">Remote, beautiful. Shorter season. <span class="run-style">sport IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF Mokelumne &mdash; Tiger Creek</div>
+      <div class="run-meta">IV &middot; 14 mi</div>
+      <div class="run-desc">AW-coordinated scheduled releases (~700 cfs). Spring release dates. <span class="run-style">creeky IV</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF Stanislaus &mdash; Board's Crossing</div>
+      <div class="run-meta">III-V &middot; 3 mi</div>
+      <div class="run-desc">Spring snowmelt. Short but stout. <span class="run-style">creeky IV</span></div>
+    </li>
+  </ul>
+
+  <div class="tier-label t3"><span class="dot"></span>Tier 3 &mdash; Local Favorites</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">SF Yuba &mdash; Edwards / Washington sections</div>
+      <div class="run-meta">IV</div>
+      <div class="run-desc">Spring snowmelt, technical.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF Cal Salmon &mdash; Limestone to Matthews</div>
+      <div class="run-meta">IV-V &middot; 6 mi</div>
+      <div class="run-desc">Short season.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">West Walker &mdash; Rock Garden</div>
+      <div class="run-meta">III-V &middot; 11 mi</div>
+      <div class="run-desc">Spring runoff, Sierra east side.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Piru Creek</div>
+      <div class="run-meta">IV &middot; 15 mi</div>
+      <div class="run-desc">SoCal IV. Rarely in.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF Merced &mdash; Snyder Gulch</div>
+      <div class="run-meta">III-IV &middot; 7.4 mi</div>
+      <div class="run-desc">Spring snowmelt.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Clear Creek &mdash; Whiskeytown</div>
+      <div class="run-meta">IV &middot; 8 mi</div>
+      <div class="run-desc">Rarely in. Local to Redding.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Sespe Creek</div>
+      <div class="run-meta">IV-V &middot; 31.5 mi</div>
+      <div class="run-desc">Remote SoCal overnight.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Arroyo Valle</div>
+      <div class="run-meta">IV &middot; 28 mi</div>
+      <div class="run-desc">Long Bay Area spring run.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Hayfork Creek</div>
+      <div class="run-meta">IV-V &middot; 21 mi</div>
+      <div class="run-desc">Wilderness.</div>
+    </li>
+    <li class="run">
+      <div class="run-name">Upper Sac &mdash; Box Canyon Dam to Dunsmuir</div>
+      <div class="run-meta">III-IV &middot; 7.5 mi</div>
+      <div class="run-desc">Repeatable sections.</div>
+    </li>
+  </ul>
+</section>
+
+<!-- ========== CLASS V ========== -->
+<section class="grade-section grade-v" data-grade="v">
+  <div class="grade-header">
+    <div class="grade-badge">V</div>
+    <h2>Class V Classics</h2>
+  </div>
+
+  <div class="tier-label t1"><span class="dot"></span>Tier 1 &mdash; The Bucket List</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">Cherry Creek / Upper Tuolumne</div>
+      <div class="run-meta">V to V+ &middot; 9 mi</div>
+      <div class="run-desc">Almost certainly the most famous V run in the world. 12 V rapids, Miracle Mile, Mushroom, Flat Rock Falls, Lumsden Falls. Dam-released mid-July&ndash;Labor Day. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Forks of the Kern</div>
+      <div class="run-meta">V &middot; 17 mi</div>
+      <div class="run-desc">40 Class IV rapids with 3 mandatory Vs (Vortex, Westwall, Carson Falls). Wilderness, 2-mile hike-in, Golden Trout. 1&ndash;3 days. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">MF Feather &mdash; Devil's Canyon</div>
+      <div class="run-meta">V &middot; 32.5 mi</div>
+      <div class="run-desc">"The best self-supported wilderness trip in California" &mdash; Holbek/Stanley. 3&ndash;4 day expedition. Granite Dome Falls portage. <span class="run-style">solid V expedition</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">MF Feather &mdash; Bald Rock Canyon</div>
+      <div class="run-meta">V+ &middot; 6.5 mi</div>
+      <div class="run-desc">Granite canyon day trip. Mandatory portage at Atom Bomb Falls. <span class="note">Rating disputed &mdash; V+ in books, IV+/V per McQuoid.</span> <span class="run-style">stout V/V+</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Burnt Ranch Gorge &mdash; Trinity</div>
+      <div class="run-meta">V &middot; 10 mi</div>
+      <div class="run-desc">IV+ with 4 mandatory V rapids (Burnt Ranch Falls series). Dam-released summer/fall. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Cal Salmon &mdash; Nordheimer</div>
+      <div class="run-meta">V &middot; 10.2 mi</div>
+      <div class="run-desc">IV+ with 3 Vs: Cascade, Last Chance, Freight Train. Often the first "real V" for advancing paddlers. Spring snowmelt. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Giant Gap &mdash; NF American</div>
+      <div class="run-meta">IV-V &middot; 14.5 mi</div>
+      <div class="run-desc">Hike-in, deep canyon, 3 V rapids. Spring snowmelt. Classic wilderness day trip. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Fordyce Creek</div>
+      <div class="run-meta">V &middot; 7&ndash;12 mi</div>
+      <div class="run-desc">Dam-released, high-Sierra granite. Fordyce Falls, Split Falls, The Hole that Ate the Donner Party. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Kaweah &mdash; Hospital Rock</div>
+      <div class="run-meta">V &middot; 5 mi</div>
+      <div class="run-desc">V-Slide, Zero to Sixty. Granite bedrock and slides in Sequoia NP. Short season. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Dinkey Creek &mdash; Waterfalls</div>
+      <div class="run-meta">V+ &middot; 6.3 mi</div>
+      <div class="run-desc">"Arguably the best whitewater run in California" &mdash; Adventure Sports Journal. 2-day expedition. <span class="run-style">stout V+</span></div>
+    </li>
+  </ul>
+
+  <div class="tier-label t2"><span class="dot"></span>Tier 2 &mdash; Established Classics</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">Royal Gorge &mdash; NF American</div>
+      <div class="run-meta">V+ &middot; 16 mi</div>
+      <div class="run-desc">Wabena Falls (70 ft), Heath Falls, Scott's Drop. Expedition. <span class="run-style">expedition V+</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Upper Kings &mdash; Garlic Falls</div>
+      <div class="run-meta">V &middot; 8 mi</div>
+      <div class="run-desc">SF Kings. 3.6-mi hike-in, huge granite, waterfalls, crystal water. <span class="run-style">solid V/V+</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Middle Kings</div>
+      <div class="run-meta">V+ &middot; 29 mi</div>
+      <div class="run-desc">Pinnacle of US expedition kayaking. Airlift in, multi-day. <span class="run-style">extreme V+</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF American &mdash; Golden Gate</div>
+      <div class="run-meta">V-V+ &middot; 9 mi</div>
+      <div class="run-desc">Technical granite. One of "the big three" in-state test pieces. <span class="run-style">stout V/V+</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF American &mdash; Slab Creek</div>
+      <div class="run-meta">IV-V &middot; 7 mi</div>
+      <div class="run-desc">Dam-released. Rock Garden (V), Meat Locker. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Rubicon</div>
+      <div class="run-meta">V &middot; 20 mi</div>
+      <div class="run-desc">"More great rapids in 20 miles than any other river I know." 2-day. Hell Hole Dam rarely spills. <span class="run-style">solid V overnight</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF Mokelumne &mdash; Devil's Nose</div>
+      <div class="run-meta">V</div>
+      <div class="run-desc">AW-coordinated scheduled release (May, ~900 cfs). Short, stout, technical. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">South Silver Creek</div>
+      <div class="run-meta">V+ &middot; 2 mi</div>
+      <div class="run-desc">Granite-slide classic. Autobahn, Teacups, Plastic Surgery. 590 ft/mi. <span class="run-style">V+ slides</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF Stanislaus &mdash; Board's Crossing</div>
+      <div class="run-meta">V &middot; 3 mi</div>
+      <div class="run-desc">Short, stout, spring snowmelt. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">MF Stanislaus &mdash; Sand Bar to Camp 9</div>
+      <div class="run-meta">IV-V+ &middot; 14 mi</div>
+      <div class="run-desc">Dam-released. IV at low flow, V at higher. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">NF Feather &mdash; Tobin</div>
+      <div class="run-meta">IV to V</div>
+      <div class="run-desc">Dam-released summer/fall. <span class="note">Rating disputed &mdash; McQuoid V, awetstate IV with V-consequence sieves.</span> <span class="run-style">consequence &gt; difficulty</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Dry Meadow Creek &mdash; Teacups</div>
+      <div class="run-meta">V &middot; 1.5 mi</div>
+      <div class="run-desc">Iconic granite cascading teacups entering the Kern at Forks. <span class="run-style">V specialized</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Brush Creek</div>
+      <div class="run-meta">V &middot; 1.5 mi</div>
+      <div class="run-desc">Kern tributary. Falls and slides. <span class="run-style">V creek</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF Kings &mdash; Horseshoe Bend</div>
+      <div class="run-meta">V+ &middot; 4.4 mi</div>
+      <div class="run-desc">Boyden Cave to MF. 2-day commitment. Scenery rivals Upper Cherry. <span class="run-style">V+ expedition</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">MF / EF Kaweah</div>
+      <div class="run-meta">V/V+</div>
+      <div class="run-desc">Short-season spring runs above Hospital Rock. <span class="run-style">stout V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Big Kimshew Creek</div>
+      <div class="run-meta">V-V+</div>
+      <div class="run-desc">Classic NorCal creek. <span class="run-style">V creek</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Butte Creek</div>
+      <div class="run-meta">IV-V</div>
+      <div class="run-desc">Local Chico-area classic. <span class="run-style">V creek</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF Cal Salmon &mdash; Limestone Bluffs</div>
+      <div class="run-meta">IV-V &middot; 6 mi</div>
+      <div class="run-desc">Short snowmelt window. <span class="run-style">solid V</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Smith River Gorges &mdash; SF &amp; MF</div>
+      <div class="run-meta">IV+/V</div>
+      <div class="run-desc">SF Smith Gorge and MF Oregon Hole. V at most flows. Winter rain-dependent. <span class="run-style">committing V</span></div>
+    </li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  California Whitewater Project &middot; Ratings from cross-source kayaker consensus, not single-source labels &middot; 2026
+</footer>
+
+<script>
+  document.querySelectorAll('.filters button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.grade-section').forEach(section => {
+        section.style.display = (filter === 'all' || section.dataset.grade === filter) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
