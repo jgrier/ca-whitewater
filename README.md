@@ -19,7 +19,17 @@ The key insight: a run doesn't have one rating. It has many ratings across sourc
 - `docs/` — three curated analyses of California Class III, IV, and V runs
 - `reference/` — methodology, source trust hierarchy, rating disputes, corrections log, glossary, schema notes
 - `data/` — (empty) where the database will live
-- `app/` — (empty) where the application code will live
+- `app/` — application code, including the classics browser
+
+## Classics App
+
+`app/classics.html` is a self-contained, single-page browser for classic CA whitewater runs. To use it, clone the repo and open the file in your browser:
+
+```
+open app/classics.html
+```
+
+No server or build step required.
 
 ## What's next
 
