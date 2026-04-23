@@ -16,7 +16,7 @@ The key insight: a run doesn't have one rating. It has many ratings across sourc
 ## What's here now
 
 - `CLAUDE.md` — project instructions for Claude Code
-- `docs/` — three curated analyses of California Class III, IV, and V runs
+- `docs/` — curated analyses of California Class II, III, IV, and V runs
 - `reference/` — methodology, source trust hierarchy, rating disputes, corrections log, glossary, schema notes
 - `data/` — (empty) where the database will live
 - `app/` — application code, including the classics browser

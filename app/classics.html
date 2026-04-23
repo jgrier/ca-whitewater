@@ -12,6 +12,8 @@
     --border: #334155;
     --text: #e2e8f0;
     --text-muted: #94a3b8;
+    --ii: #4ade80;
+    --ii-bg: rgba(74,222,128,0.08);
     --iii: #22d3ee;
     --iii-bg: rgba(34,211,238,0.08);
     --iv: #f59e0b;
@@ -76,6 +78,7 @@
   .filters button:hover { background: var(--surface-hover); color: var(--text); }
   .filters button.active { color: #fff; font-weight: 600; }
   .filters button.active[data-filter="all"] { background: #6366f1; border-color: #6366f1; }
+  .filters button.active[data-filter="ii"] { background: #16a34a; border-color: #16a34a; }
   .filters button.active[data-filter="iii"] { background: #0891b2; border-color: #0891b2; }
   .filters button.active[data-filter="iv"] { background: #d97706; border-color: #d97706; }
   .filters button.active[data-filter="v"] { background: #dc2626; border-color: #dc2626; }
@@ -101,6 +104,7 @@
     letter-spacing: 0.05em;
   }
 
+  .grade-ii .grade-badge { background: var(--ii); color: #0f172a; }
   .grade-iii .grade-badge { background: var(--iii); color: #0f172a; }
   .grade-iv .grade-badge { background: var(--iv); color: #0f172a; }
   .grade-v .grade-badge { background: var(--v); color: #fff; }
@@ -143,6 +147,7 @@
 
   .run:hover { background: var(--surface); }
 
+  .grade-ii .run:hover { background: var(--ii-bg); }
   .grade-iii .run:hover { background: var(--iii-bg); }
   .grade-iv .run:hover { background: var(--iv-bg); }
   .grade-v .run:hover { background: var(--v-bg); }
@@ -219,18 +224,160 @@
 
 <div class="filters">
   <button class="active" data-filter="all">All Classes</button>
+  <button data-filter="ii">Class II</button>
   <button data-filter="iii">Class III</button>
   <button data-filter="iv">Class IV</button>
   <button data-filter="v">Class V</button>
 </div>
 
 <div class="count-bar">
+  <div>Class II: <span>24</span></div>
   <div>Class III: <span>25</span></div>
   <div>Class IV: <span>24</span></div>
   <div>Class V: <span>29</span></div>
 </div>
 
 <main>
+
+<!-- ========== CLASS II ========== -->
+<section class="grade-section grade-ii" data-grade="ii">
+  <div class="grade-header">
+    <div class="grade-badge">II</div>
+    <h2>Class II Classics</h2>
+  </div>
+
+  <div class="tier-label t1"><span class="dot"></span>Tier 1 &mdash; Iconic / Must-Do</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">Lower American &mdash; Nimbus to Discovery Park</div>
+      <div class="run-meta">I-II &middot; 23 mi</div>
+      <div class="run-desc">Sacramento's home river. Most-paddled water in the region. Year-round flows from Folsom Dam. Where every Sac-area paddler learns. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">East Fork Carson &mdash; Overnight</div>
+      <div class="run-meta">II &middot; 20 mi</div>
+      <div class="run-desc">II with III pulses. Hot springs, desert canyon, multi-day wilderness. The overnight experience is fundamentally Class II in character. <span class="run-style">sporty II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Klamath &mdash; Iron Gate to Sarah Totten</div>
+      <div class="run-meta">II &middot; 48 mi</div>
+      <div class="run-desc">Premier NorCal multi-day float. Big-volume volcanic canyon, excellent camping, 2&ndash;4 day trip. Accessible to open canoes. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Trinity &mdash; Lewiston to Junction City</div>
+      <div class="run-meta">II &middot; 30 mi</div>
+      <div class="run-desc">Dam-released, reliable spring&ndash;fall. Gorgeous scenery, good camping. A few III rapids keep it interesting. Best "intro to river camping" in NorCal. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Mokelumne &mdash; Electra Run</div>
+      <div class="run-meta">II &middot; 6 mi</div>
+      <div class="run-desc">Class II at normal flows, II+/III above 1500 cfs. Closest dam-released run to Sacramento/Rocklin. The default warmup or bring-a-friend run. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Lower Kern &mdash; Town Run</div>
+      <div class="run-meta">II-III &middot; 7 mi</div>
+      <div class="run-desc">Isabella to Sandy Flat. SoCal's most accessible dam-released whitewater. Summer staple. Predominantly II with a few III drops. <span class="run-style">sporty II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Sacramento &mdash; Redding to Anderson</div>
+      <div class="run-meta">II &middot; 12 mi</div>
+      <div class="run-desc">Big-volume tailwater below Shasta Dam. Famous trout water. Cold, clear, year-round flows. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Russian River &mdash; Cloverdale to Healdsburg</div>
+      <div class="run-meta">II &middot; 25 mi</div>
+      <div class="run-desc">Bay Area's winter/spring river trip. Wine country scenery, mild rapids. Good for canoes and kayaks. Rain-dependent. <span class="run-style">mellow II</span></div>
+    </li>
+  </ul>
+
+  <div class="tier-label t2"><span class="dot"></span>Tier 2 &mdash; Regional Classics</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">Stanislaus &mdash; Camp Nine to Parrotts Ferry</div>
+      <div class="run-meta">II &middot; 9 mi</div>
+      <div class="run-desc">Gold Country limestone canyon. Dam-controlled, clear water. Popular with families and canoeists. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Trinity &mdash; Junction City to Burnt Ranch</div>
+      <div class="run-meta">II-III &middot; 30 mi</div>
+      <div class="run-desc">Extends the Lewiston float downstream. Mostly II before canyon steepens. Multi-day extension. <span class="run-style">sporty II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Klamath &mdash; Sarah Totten to Happy Camp</div>
+      <div class="run-meta">II-III &middot; 36 mi</div>
+      <div class="run-desc">Continuation of Iron Gate float. Picks up slightly &mdash; transitions from II to borderline III. Multi-day. <span class="run-style">sporty II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Truckee &mdash; Tahoe City to River Ranch</div>
+      <div class="run-meta">II &middot; 5 mi</div>
+      <div class="run-desc">Short, scenic, convenient. Default "quick paddle near Tahoe." Summer dam releases. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Cache Creek &mdash; Upper (Hwy 20 to Bear Creek)</div>
+      <div class="run-meta">II(III) &middot; 18 mi</div>
+      <div class="run-desc">Calmer section above Rumsey Canyon. Winter/spring, rain-dependent. Sac/Bay Area within-reach. <span class="run-style">sporty II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Smith River &mdash; Jed Smith to Mouth</div>
+      <div class="run-meta">I-II &middot; 5 mi</div>
+      <div class="run-desc">The clearest water in California. Worth paddling for scenery alone. Winter/spring. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Cosumnes River &mdash; Michigan Bar to Hwy 99</div>
+      <div class="run-meta">II &middot; 12 mi</div>
+      <div class="run-desc">Sacramento foothills rain-dependent. Narrow, tree-lined, intimate. Short season but very close to Rocklin. <span class="run-style">II with teeth</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">SF Eel &mdash; Leggett to Piercy</div>
+      <div class="run-meta">II &middot; 15 mi</div>
+      <div class="run-desc">Mellow section of the South Fork Eel. Redwood scenery. Rain-dependent, winter/spring. <span class="run-style">mellow II</span></div>
+    </li>
+  </ul>
+
+  <div class="tier-label t3"><span class="dot"></span>Tier 3 &mdash; Local Favorites</div>
+  <ul class="run-list">
+    <li class="run">
+      <div class="run-name">Bear River &mdash; Dog Bar to Camp Far West</div>
+      <div class="run-meta">II &middot; 6 mi</div>
+      <div class="run-desc">Gold Country local run. Short season. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Putah Creek &mdash; Below Monticello Dam</div>
+      <div class="run-meta">I-II &middot; 6 mi</div>
+      <div class="run-desc">Quiet, cold, scenic. Near Davis/Sacramento. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">West Carson &mdash; Hwy 4 to Woodfords</div>
+      <div class="run-meta">II &middot; 5 mi</div>
+      <div class="run-desc">Eastern Sierra, short, scenic. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Owens River &mdash; Pleasant Valley to Bishop</div>
+      <div class="run-meta">I-II &middot; 8 mi</div>
+      <div class="run-desc">Eastern Sierra desert float. Mellow, scenic, year-round. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">MF Feather &mdash; Sloat to Nelson Point</div>
+      <div class="run-meta">II-III &middot; 6.5 mi</div>
+      <div class="run-desc">Remote. Mostly II with some III. Pretty canyon. <span class="run-style">sporty II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Van Duzen &mdash; Grizzly Creek</div>
+      <div class="run-meta">II-III &middot; 5.2 mi</div>
+      <div class="run-desc">North Coast rain-dependent. Short, fun. <span class="run-style">sporty II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Walker River &mdash; Main Stem</div>
+      <div class="run-meta">II &middot; 8 mi</div>
+      <div class="run-desc">Eastern Sierra. Less-known, mellow. <span class="run-style">mellow II</span></div>
+    </li>
+    <li class="run">
+      <div class="run-name">Feather &mdash; Oroville to Thermalito</div>
+      <div class="run-meta">I-II &middot; 5 mi</div>
+      <div class="run-desc">Flatwater-ish but accessible. <span class="run-style">mellow II</span></div>
+    </li>
+  </ul>
+</section>
 
 <!-- ========== CLASS III ========== -->
 <section class="grade-section grade-iii" data-grade="iii">
