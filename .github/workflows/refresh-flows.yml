@@ -1,0 +1,41 @@
+name: Refresh flows snapshot
+
+on:
+  schedule:
+    # Every 5 min (GitHub Actions cron minimum). Note GitHub cron is
+    # best-effort and frequently delays or skips runs at this cadence —
+    # in practice you'll see refreshes every 5-20 min.
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-flows
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh flows
+        run: python3 scripts/refresh-flows.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/flows.js
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore(flows): refresh snapshot"
+            git push
+          fi
