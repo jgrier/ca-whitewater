@@ -174,6 +174,79 @@
 
   .run:hover { background: var(--surface); }
 
+  /* Tappable rows (any run with a Dreamflows graph) */
+  .run.has-graph { cursor: pointer; }
+  .run.has-graph .run-meta .flow { border-bottom: 1px dotted currentColor; }
+
+  /* Flow-graph modal */
+  #flow-modal {
+    position: fixed; inset: 0;
+    background: rgba(15,23,42,0.82);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 100;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #flow-modal.open { display: flex; }
+  #flow-modal .modal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    max-width: min(960px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    position: relative;
+  }
+  #flow-modal .modal-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.9rem 1.1rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+  }
+  #flow-modal .modal-title { font-weight: 600; font-size: 1.05rem; line-height: 1.3; }
+  #flow-modal .modal-sub {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+  }
+  #flow-modal .modal-sub .cfs { font-weight: 700; color: var(--text); }
+  #flow-modal .modal-close {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  #flow-modal .modal-close:hover { background: var(--surface-hover); color: var(--text); }
+  #flow-modal .modal-body { padding: 0.9rem 1.1rem 1rem; }
+  #flow-modal .modal-body img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    background: #fff;
+  }
+  #flow-modal .modal-body .source-link {
+    display: block;
+    margin-top: 0.65rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-align: right;
+  }
+  #flow-modal .modal-body .source-link a { color: var(--text-muted); }
+
   .grade-ii .run:hover { background: var(--ii-bg); }
   .grade-iii .run:hover { background: var(--iii-bg); }
   .grade-iv .run:hover { background: var(--iv-bg); }
@@ -942,6 +1015,22 @@
   California Whitewater Project &middot; Ratings from cross-source kayaker consensus, not single-source labels &middot; 2026
 </footer>
 
+<div id="flow-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-card" role="document">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title"></div>
+        <div class="modal-sub"></div>
+      </div>
+      <button class="modal-close" type="button" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <img alt="flow graph" referrerpolicy="no-referrer">
+      <div class="source-link"><a target="_blank" rel="noopener">View on Dreamflows &rarr;</a></div>
+    </div>
+  </div>
+</div>
+
 <script src="flows.js"></script>
 <script>
   // Class-filter buttons
@@ -987,33 +1076,20 @@
         return;
       }
       const label = r.name || '';
-      const link = r.link;
+      if (r.link) li.classList.add('has-graph');
       if (typeof r.cfs === 'number') {
         const cls = classify(r.cfs, r.low_min, r.good_min, r.good_max);
         li.classList.add(cls);
         const text = `${fmtCfs(r.cfs)} cfs`;
         const title = `${label} · ${r.low_min}/${r.good_min}–${r.good_max} cfs · ${r.ts || ''}`;
-        if (span) {
-          span.title = title;
-          if (link) {
-            span.innerHTML = `<a href="${link}" target="_blank" rel="noopener">${text}</a>`;
-          } else {
-            span.textContent = text;
-          }
-        }
+        if (span) { span.title = title; span.textContent = text; }
       } else if (r.raw) {
         // Non-numeric reading like "Low" — neutral color, show text
         li.classList.add('flow-na');
-        if (span) {
-          span.title = `${label} · ${r.ts || ''}`;
-          span.textContent = r.raw;
-        }
+        if (span) { span.title = `${label} · ${r.ts || ''}`; span.textContent = r.raw; }
       } else {
         li.classList.add('flow-na');
-        if (span) {
-          span.textContent = link ? '' : 'no gauge';
-          if (link) span.innerHTML = `<a href="${link}" target="_blank" rel="noopener">↗ Dreamflows</a>`;
-        }
+        if (span) span.textContent = r.link ? '↗ graph' : 'no gauge';
       }
     });
     const ts = document.getElementById('flow-ts');
@@ -1023,6 +1099,47 @@
     }
   }
   applyFlows();
+
+  // Flow-graph modal: tap a row → show the Dreamflows PNG inline.
+  const modal = document.getElementById('flow-modal');
+  const mTitle = modal.querySelector('.modal-title');
+  const mSub   = modal.querySelector('.modal-sub');
+  const mImg   = modal.querySelector('.modal-body img');
+  const mLink  = modal.querySelector('.source-link a');
+
+  function openModal(runId) {
+    const r = window.FLOWS && window.FLOWS.flows[runId];
+    if (!r || !r.link) return;
+    const li = document.querySelector(`.run[data-run-id="${runId}"]`);
+    const name = li ? li.querySelector('.run-name').textContent.trim() : runId;
+    const cfsTxt = (typeof r.cfs === 'number') ? `${fmtCfs(r.cfs)} cfs` : (r.raw || '—');
+    mTitle.textContent = name;
+    mSub.innerHTML = `<span class="cfs">${cfsTxt}</span> · ${r.name || ''} · range ${r.low_min}/${r.good_min}–${r.good_max}`;
+    mImg.src = r.link.replace(/\.php$/, '.png');
+    mImg.alt = `${r.name || name} flow graph`;
+    mLink.href = r.link;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    mImg.src = '';
+  }
+  // Open: tap anywhere on a row with a graph
+  document.querySelectorAll('.run[data-run-id]').forEach(li => {
+    li.addEventListener('click', e => {
+      if (!li.classList.contains('has-graph')) return;
+      if (e.target.closest('a')) return; // let external links work
+      openModal(li.dataset.runId);
+    });
+  });
+  // Close: X button, click on background, ESC
+  modal.querySelector('.modal-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 </script>
 
 </body>
