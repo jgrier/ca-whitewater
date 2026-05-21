@@ -41,6 +41,15 @@
     border-bottom: 1px solid var(--border);
   }
 
+  header .about-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  header .about-link:hover { color: var(--text); border-bottom-color: var(--text); }
+
   header h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -55,33 +64,69 @@
     margin-inline: auto;
   }
 
+  .filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
   .filters {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 1.25rem 1rem;
-    border-bottom: 1px solid var(--border);
+    gap: 0.4rem;
+    padding: 0.6rem 1rem;
     flex-wrap: wrap;
+    align-items: center;
+  }
+  .filters.filters-class { padding-top: 0.85rem; }
+  .filters.filters-color { padding-bottom: 0.85rem; }
+  .filters .filter-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-right: 0.25rem;
   }
 
   .filters button {
     background: var(--surface);
     color: var(--text-muted);
     border: 1px solid var(--border);
-    padding: 0.4rem 1rem;
+    padding: 0.32rem 0.85rem;
     border-radius: 999px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     cursor: pointer;
     transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
   }
+  .filters button .sw {
+    width: 0.55rem; height: 0.55rem;
+    border-radius: 2px;
+    background: currentColor;
+    opacity: 0.85;
+  }
+  .filters button[data-color="green"]  { color: #16a34a; }
+  .filters button[data-color="yellow"] { color: #ca8a04; }
+  .filters button[data-color="red"]    { color: #dc2626; }
+  .filters button[data-color="white"]  { color: #cbd5e1; }
 
   .filters button:hover { background: var(--surface-hover); color: var(--text); }
   .filters button.active { color: #fff; font-weight: 600; }
-  .filters button.active[data-filter="all"] { background: #6366f1; border-color: #6366f1; }
-  .filters button.active[data-filter="ii"] { background: #16a34a; border-color: #16a34a; }
-  .filters button.active[data-filter="iii"] { background: #0891b2; border-color: #0891b2; }
-  .filters button.active[data-filter="iv"] { background: #d97706; border-color: #d97706; }
-  .filters button.active[data-filter="v"] { background: #dc2626; border-color: #dc2626; }
+  .filters button.active .sw { background: #fff; opacity: 1; }
+  .filters button.active[data-filter="all"]   { background: #6366f1; border-color: #6366f1; }
+  .filters button.active[data-filter="ii"]    { background: #16a34a; border-color: #16a34a; }
+  .filters button.active[data-filter="iii"]   { background: #0891b2; border-color: #0891b2; }
+  .filters button.active[data-filter="iv"]    { background: #d97706; border-color: #d97706; }
+  .filters button.active[data-filter="v"]     { background: #dc2626; border-color: #dc2626; }
+  .filters button.active[data-color="all"]    { background: #6366f1; border-color: #6366f1; }
+  .filters button.active[data-color="green"]  { background: #16a34a; border-color: #16a34a; }
+  .filters button.active[data-color="yellow"] { background: #ca8a04; border-color: #ca8a04; }
+  .filters button.active[data-color="red"]    { background: #dc2626; border-color: #dc2626; }
+  .filters button.active[data-color="white"]  { background: #64748b; border-color: #64748b; }
 
   main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
 
@@ -247,6 +292,58 @@
   }
   #flow-modal .modal-body .source-link a { color: var(--text-muted); }
 
+  /* About-modal — reuses the flow-modal card shell */
+  #about-modal {
+    position: fixed; inset: 0;
+    background: rgba(15,23,42,0.82);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 100;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #about-modal.open { display: flex; }
+  #about-modal .modal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    max-width: min(640px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  }
+  #about-modal .modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+  }
+  #about-modal .modal-title { font-weight: 600; font-size: 1.05rem; }
+  #about-modal .modal-close {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  #about-modal .modal-close:hover { background: var(--surface-hover); color: var(--text); }
+  .about-body { padding: 1rem 1.25rem 1.25rem; font-size: 0.92rem; line-height: 1.55; }
+  .about-body h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 1.1rem 0 0.5rem; }
+  .about-body p { margin-bottom: 0.7rem; }
+  .about-body ul { margin: 0.3rem 0 0.8rem 1.1rem; }
+  .about-body li { margin-bottom: 0.3rem; }
+  .about-body a { color: #93c5fd; }
+  .about-body a:hover { color: #bfdbfe; }
+  .about-footer { color: var(--text-muted); font-size: 0.8rem; margin-top: 1.2rem; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+
   .grade-ii .run:hover { background: var(--ii-bg); }
   .grade-iii .run:hover { background: var(--iii-bg); }
   .grade-iv .run:hover { background: var(--iv-bg); }
@@ -344,21 +441,32 @@
 
 <header>
   <h1>California Whitewater Classics</h1>
-  <p>Curated runs rated by cross-source agreement. Ratings reflect kayaker consensus, not single-source labels.</p>
+  <p>Curated runs rated by cross-source agreement. Ratings reflect kayaker consensus, not single-source labels. <a class="about-link" id="about-link" href="#">How did I build this?</a></p>
 </header>
 
-<div class="filters">
-  <button class="active" data-filter="all">All Classes</button>
-  <button data-filter="ii">Class II</button>
-  <button data-filter="iii">Class III</button>
-  <button data-filter="iv">Class IV</button>
-  <button data-filter="v">Class V</button>
+<div class="filter-bar">
+  <div class="filters filters-class">
+    <span class="filter-label">Class</span>
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="ii">II</button>
+    <button data-filter="iii">III</button>
+    <button data-filter="iv">IV</button>
+    <button data-filter="v">V</button>
+  </div>
+  <div class="filters filters-color">
+    <span class="filter-label">Flow</span>
+    <button class="active" data-color="all">All</button>
+    <button data-color="green"><span class="sw"></span>Perfect</button>
+    <button data-color="yellow"><span class="sw"></span>Low</button>
+    <button data-color="red"><span class="sw"></span>High</button>
+    <button data-color="white"><span class="sw"></span>Too low</button>
+  </div>
 </div>
 
 <div class="count-bar">
   <div>Class II: <span>24</span></div>
-  <div>Class III: <span>25</span></div>
-  <div>Class IV: <span>24</span></div>
+  <div>Class III: <span>20</span></div>
+  <div>Class IV: <span>28</span></div>
   <div>Class V: <span>29</span></div>
 </div>
 
@@ -389,7 +497,7 @@
     </li>
     <li class="run" data-run-id="ef-carson-overnight-ii">
       <div class="run-name">East Fork Carson &mdash; Overnight</div>
-      <div class="run-meta">II &middot; 20 mi <span class="flow"></span></div>
+      <div class="run-meta">II+ (III) &middot; 20 mi <span class="flow"></span></div>
       <div class="run-desc">II with III pulses. Hot springs, desert canyon, multi-day wilderness. The overnight experience is fundamentally Class II in character. <span class="run-style">sporty II</span></div>
     </li>
     <li class="run" data-run-id="klamath-iron-gate-sarah">
@@ -404,7 +512,7 @@
     </li>
     <li class="run" data-run-id="mokelumne-electra-ii">
       <div class="run-name">Mokelumne &mdash; Electra Run</div>
-      <div class="run-meta">II &middot; 6 mi <span class="flow"></span></div>
+      <div class="run-meta">II (III) &middot; 6 mi <span class="flow"></span></div>
       <div class="run-desc">Class II at normal flows, II+/III above 1500 cfs. Closest dam-released run to Sacramento/Rocklin. The default warmup or bring-a-friend run. <span class="run-style">mellow II</span></div>
     </li>
     <li class="run" data-run-id="lower-kern-town-run">
@@ -527,20 +635,10 @@
       <div class="run-meta">III+ &middot; 15 mi <span class="flow"></span></div>
       <div class="run-desc">Chili Bar, Coloma-to-Lotus, and The Gorge. Most-paddled III in California. Dam-released May&ndash;Sep. Meatgrinder, Troublemaker, Satan's Cesspool, Hospital Bar.</div>
     </li>
-    <li class="run" data-run-id="mf-american-oxbow-greenwood-iii">
-      <div class="run-name">Middle Fork American &mdash; Oxbow to Greenwood</div>
-      <div class="run-meta">II-IV &middot; 17 mi <span class="flow"></span></div>
-      <div class="run-desc">Continuous III with Tunnel Chute (IV) at mile 1. Dam-released, summer-friendly. Gorgeous canyon.</div>
-    </li>
     <li class="run" data-run-id="upper-sac-box-sims-iii">
       <div class="run-name">Upper Sacramento &mdash; Box Canyon to Sims</div>
       <div class="run-meta">III-IV &middot; 22 mi <span class="flow"></span></div>
       <div class="run-desc">Granite pool-drop under Castle Crags. Spring/early summer. Three sections combinable.</div>
-    </li>
-    <li class="run" data-run-id="ef-carson-overnight-iii">
-      <div class="run-name">East Fork Carson &mdash; Overnight</div>
-      <div class="run-meta">II+ &middot; 20 mi <span class="flow"></span></div>
-      <div class="run-desc">II+ with III pulses, hot springs, multi-day wilderness feel. The classic Sierra overnight.</div>
     </li>
     <li class="run" data-run-id="truckee-floriston">
       <div class="run-name">Truckee River &mdash; Floriston</div>
@@ -550,12 +648,12 @@
     <li class="run" data-run-id="kings-banzai-iii">
       <div class="run-name">Kings River &mdash; Banzai</div>
       <div class="run-meta">III-IV &middot; 9.5 mi <span class="flow"></span></div>
-      <div class="run-desc">Garnet Dike to Kirch Flat. Spring snowmelt Sierra classic in a warm canyon.</div>
+      <div class="run-desc">Garnet Dike to Kirch Flat. Fang Tooth IV+, Mule Rock IV, Banzai IV+. Spring snowmelt Sierra classic in a warm canyon.</div>
     </li>
     <li class="run" data-run-id="klamath-hells-corner-iii">
       <div class="run-name">Klamath &mdash; Hell's Corner</div>
-      <div class="run-meta">III+ &middot; 18 mi <span class="flow"></span></div>
-      <div class="run-desc">Big-water III at Happy Camp. Multi-day option. IV at high flow.</div>
+      <div class="run-meta">III+ (IV) &middot; 18 mi <span class="flow"></span></div>
+      <div class="run-desc">Big-water III+ at one-generator releases. Becomes IV at 2500+ cfs (two generators). Multi-day option.</div>
     </li>
     <li class="run" data-run-id="cache-rumsey">
       <div class="run-name">Cache Creek &mdash; Rumsey Canyon</div>
@@ -601,20 +699,10 @@
       <div class="run-meta">III &middot; 8 mi <span class="flow"></span></div>
       <div class="run-desc">The genuine Class III NF Feather run. Dam-released summer/fall. One IV&minus; rapid, easily scouted.</div>
     </li>
-    <li class="run" data-run-id="merced-el-portal-iii">
-      <div class="run-name">Merced &mdash; El Portal to Briceburg</div>
-      <div class="run-meta">III+ to IV+ <span class="flow"></span></div>
-      <div class="run-desc">Snowmelt. Rating drifts significantly with CFS. <span class="note">Contains Class V Ned's Gulch.</span></div>
-    </li>
     <li class="run" data-run-id="upper-kern-camp-3-limestone">
       <div class="run-name">Upper Kern &mdash; Camp 3 / Limestone</div>
       <div class="run-meta">III-V &middot; 17 mi <span class="flow"></span></div>
       <div class="run-desc">Genuine III segments exist but you must pick-and-choose. Not read-and-run III.</div>
-    </li>
-    <li class="run" data-run-id="mokelumne-electra-iii">
-      <div class="run-name">Mokelumne &mdash; Electra Run</div>
-      <div class="run-meta">II-III &middot; 6 mi <span class="flow"></span></div>
-      <div class="run-desc">Class II at normal flows, III only above ~1500 cfs. Closest dam-released run to Sacramento.</div>
     </li>
   </ul>
 
@@ -639,11 +727,6 @@
       <div class="run-name">Little Sur River</div>
       <div class="run-meta">III-IV &middot; 7 mi <span class="flow"></span></div>
       <div class="run-desc">Tiny coastal classic.</div>
-    </li>
-    <li class="run" data-run-id="goodwin-canyon-iii">
-      <div class="run-name">Goodwin Canyon &mdash; Stanislaus</div>
-      <div class="run-meta">III-IV(V) &middot; 4 mi <span class="flow"></span></div>
-      <div class="run-desc">Borderline for III paddlers. Mr. Toad's Wild Ride at high water is IV+.</div>
     </li>
     <li class="run" data-run-id="mad-river-ruth">
       <div class="run-name">Mad River &mdash; Ruth Stretch</div>
@@ -697,11 +780,6 @@
       <div class="run-meta">IV &middot; 3 mi <span class="flow"></span></div>
       <div class="run-desc">Gateway, Chute, Osterizer, Suicide Falls. Technical boulder-garden. Snowmelt spring. <span class="run-style">creeky IV</span></div>
     </li>
-    <li class="run" data-run-id="kings-banzai-iv">
-      <div class="run-name">Kings &mdash; Banzai</div>
-      <div class="run-meta">III-IV &middot; 9.5 mi <span class="flow"></span></div>
-      <div class="run-desc">Fang Tooth IV+, Mule Rock IV, Banzai IV+. Spring snowmelt, warm canyon. <span class="run-style">sport IV</span></div>
-    </li>
     <li class="run" data-run-id="upper-sac-box-gibson">
       <div class="run-name">Upper Sac &mdash; Box Canyon to Gibson</div>
       <div class="run-meta">III-IV &middot; 35 mi <span class="flow"></span></div>
@@ -709,13 +787,8 @@
     </li>
     <li class="run" data-run-id="goodwin-canyon-iv">
       <div class="run-name">Goodwin Canyon &mdash; Stanislaus</div>
-      <div class="run-meta">IV+ &middot; 4 mi <span class="flow"></span></div>
-      <div class="run-desc">Mr. Toad's Wild Ride, Impaler, Haunted House, Matterhorn. Short, intense &mdash; run it twice. <span class="run-style">creeky IV</span></div>
-    </li>
-    <li class="run" data-run-id="klamath-hells-corner-iv">
-      <div class="run-name">Klamath Hell's Corner / Trinity at High Water</div>
-      <div class="run-meta">IV &middot; 18 mi <span class="flow"></span></div>
-      <div class="run-desc">Hell's Corner at 2500+ cfs becomes genuine IV. Big-water day trips. <span class="run-style">big-water IV</span></div>
+      <div class="run-meta">IV+ (V) &middot; 4 mi <span class="flow"></span></div>
+      <div class="run-desc">Mr. Toad's Wild Ride, Impaler, Haunted House, Matterhorn. Short, intense &mdash; run it twice. III paddlers can run it at low flow; mandatory V at high. <span class="run-style">creeky IV</span></div>
     </li>
   </ul>
 
@@ -741,16 +814,6 @@
       <div class="run-meta">IV &middot; 8.5 mi <span class="flow"></span></div>
       <div class="run-desc">Spring snowmelt. Technical, sometimes woody. Downieville locals' classic. <span class="run-style">creeky IV</span></div>
     </li>
-    <li class="run" data-run-id="sf-american-slab-creek-iv">
-      <div class="run-name">SF American &mdash; Slab Creek</div>
-      <div class="run-meta">IV-V &middot; 7 mi <span class="flow"></span></div>
-      <div class="run-desc">Dam-released. Big slides, Rock Garden. <span class="run-style">committing IV</span></div>
-    </li>
-    <li class="run" data-run-id="nf-feather-tobin-iv">
-      <div class="run-name">NF Feather &mdash; Tobin / Lobin</div>
-      <div class="run-meta">IV / IV+ <span class="flow"></span></div>
-      <div class="run-desc">Tobin is IV with sieve hazards; Lobin is IV+. Dam-released summer/fall. <span class="note">Rating disputed &mdash; McQuoid calls it V.</span> <span class="run-style">creeky IV</span></div>
-    </li>
     <li class="run" data-run-id="pit-5">
       <div class="run-name">Pit 5 &mdash; Pit 5 Dam to PH</div>
       <div class="run-meta">IV &middot; 9 mi <span class="flow"></span></div>
@@ -771,11 +834,6 @@
       <div class="run-meta">IV-V &middot; 7 mi <span class="flow"></span></div>
       <div class="run-desc">Technical slotty spring run. <span class="run-style">creeky IV</span></div>
     </li>
-    <li class="run" data-run-id="mf-stanislaus-camp-9">
-      <div class="run-name">MF Stanislaus &mdash; Camp 9</div>
-      <div class="run-meta">IV-V &middot; 14 mi <span class="flow"></span></div>
-      <div class="run-desc">Dam-released. Big slides, early season. <span class="run-style">committing IV</span></div>
-    </li>
     <li class="run" data-run-id="upper-mccloud-fowler">
       <div class="run-name">Upper McCloud &mdash; Fowler to Reservoir</div>
       <div class="run-meta">III-IV &middot; 10 mi <span class="flow"></span></div>
@@ -785,11 +843,6 @@
       <div class="run-name">NF Mokelumne &mdash; Tiger Creek</div>
       <div class="run-meta">IV &middot; 14 mi <span class="flow"></span></div>
       <div class="run-desc">AW-coordinated scheduled releases (~700 cfs). Spring release dates. <span class="run-style">creeky IV</span></div>
-    </li>
-    <li class="run" data-run-id="nf-stanislaus-boards-iv">
-      <div class="run-name">NF Stanislaus &mdash; Board's Crossing</div>
-      <div class="run-meta">III-V &middot; 3 mi <span class="flow"></span></div>
-      <div class="run-desc">Spring snowmelt. Short but stout. <span class="run-style">creeky IV</span></div>
     </li>
   </ul>
 
@@ -953,8 +1006,8 @@
     </li>
     <li class="run" data-run-id="nf-stanislaus-boards-v">
       <div class="run-name">NF Stanislaus &mdash; Board's Crossing</div>
-      <div class="run-meta">V &middot; 3 mi <span class="flow"></span></div>
-      <div class="run-desc">Short, stout, spring snowmelt. <span class="run-style">solid V</span></div>
+      <div class="run-meta">V (III-V) &middot; 3 mi <span class="flow"></span></div>
+      <div class="run-desc">Short, stout, spring snowmelt. Class III at low flows, V at high. <span class="run-style">solid V</span></div>
     </li>
     <li class="run" data-run-id="mf-stanislaus-sandbar-camp-9">
       <div class="run-name">MF Stanislaus &mdash; Sand Bar to Camp 9</div>
@@ -1031,19 +1084,96 @@
   </div>
 </div>
 
+<div id="about-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-card about-card" role="document">
+    <div class="modal-head">
+      <div class="modal-title">How this page was made</div>
+      <button class="modal-close" type="button" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body about-body">
+      <p>This isn't a mirror of riverfacts.com or any single guidebook. Existing California whitewater lists each have one source's biases baked in &mdash; outfitters inflate for marketing, Holbek-Stanley ratings are from the late '90s, expert kayaker blogs are scattered. The point of this page is to honestly surface where sources disagree and what the current consensus actually is.</p>
+
+      <h3>How the data was built</h3>
+      <p>I worked with <strong>Claude</strong> (Anthropic's AI) as a research collaborator to scour the web and reconcile information from many sources:</p>
+      <ul>
+        <li><a href="https://americanwhitewater.org" target="_blank" rel="noopener">American Whitewater</a> river pages &mdash; official ratings + AW-coordinated release schedules</li>
+        <li><a href="https://www.dreamflows.com" target="_blank" rel="noopener">Dreamflows</a> &mdash; runnable-range "trigger levels" and aggregated realtime CFS</li>
+        <li><a href="https://cacreeks.com" target="_blank" rel="noopener">cacreeks.com</a> (Bill Tuthill) &mdash; first-hand kayak/raft thresholds and neutral kayaker-focused descriptions</li>
+        <li><a href="https://darinmcquoid.com" target="_blank" rel="noopener">Darin McQuoid</a> &mdash; the authoritative kayaker perspective on Class V/V+</li>
+        <li><a href="https://www.whitewaterguidebook.com" target="_blank" rel="noopener">Whitewater Guidebook</a> (Zach Collier) and awetstate / liquidlore trip reports</li>
+        <li>The Holbek &amp; Stanley guidebook (1988-1998) as a baseline, with corrections where channels have changed</li>
+      </ul>
+
+      <h3>Live flows</h3>
+      <p>Each run is color-coded by current CFS. The color rule per run uses ranges curated from the sources above &mdash; for many runs we keep <em>per-flow-context</em> ranges (the same gauge can read green for Class II and red for Class III on the same day). Live values come from <strong>Dreamflows' realtime feed</strong> for full coverage plus direct <strong>USGS instantaneous values</strong> for natural-flow rivers (15-min cadence).</p>
+      <p>A <a href="https://github.com/jgrier/ca-whitewater/blob/main/.github/workflows/refresh-flows.yml" target="_blank" rel="noopener">GitHub Actions cron job</a> regenerates the snapshot every few minutes, so the page is always fresh.</p>
+
+      <h3>Rating disputes</h3>
+      <p>Some runs have legitimate community disagreement &mdash; commercial outfitters call NF Feather Tobin a IV, Darin McQuoid calls it V. Lower Kern Miracle&rarr;Democrat is rafted as IV but has a mandatory V+ portage. We surface these in the notes rather than collapsing them to one rating.</p>
+
+      <p class="about-footer">Source for everything: <a href="https://github.com/jgrier/ca-whitewater" target="_blank" rel="noopener">github.com/jgrier/ca-whitewater</a></p>
+    </div>
+  </div>
+</div>
+
 <script src="flows.js"></script>
 <script>
-  // Class-filter buttons
-  document.querySelectorAll('.filters button').forEach(btn => {
+  // Filters — persisted across reloads via localStorage. classFilter
+  // hides whole grade-sections; colorFilter hides individual runs by
+  // their flow-class. Both compose (Class III AND green is allowed).
+  const FILTER_KEY = 'cawhitewater.filters.v1';
+  const saved = (() => { try { return JSON.parse(localStorage.getItem(FILTER_KEY)) || {}; } catch (_) { return {}; } })();
+  let classFilter = saved.class || 'all';
+  let colorFilter = saved.color || 'all';
+
+  function persistFilters() {
+    try { localStorage.setItem(FILTER_KEY, JSON.stringify({class: classFilter, color: colorFilter})); } catch (_) {}
+  }
+
+  function applyFilters() {
+    // Per-run visibility (color filter)
+    document.querySelectorAll('.run[data-run-id]').forEach(li => {
+      const ok = colorFilter === 'all' || li.classList.contains('flow-' + colorFilter);
+      li.style.display = ok ? '' : 'none';
+    });
+    // Hide tier headers + lists with no visible runs
+    document.querySelectorAll('.tier-label').forEach(label => {
+      let next = label.nextElementSibling;
+      if (!next || !next.classList.contains('run-list')) return;
+      const anyVisible = Array.from(next.querySelectorAll('.run')).some(li => li.style.display !== 'none');
+      label.style.display = anyVisible ? '' : 'none';
+      next.style.display = anyVisible ? '' : 'none';
+    });
+    // Class-section visibility: combine class filter AND "section has any visible run"
+    document.querySelectorAll('.grade-section').forEach(section => {
+      const classOk = classFilter === 'all' || section.dataset.grade === classFilter;
+      const anyVisible = Array.from(section.querySelectorAll('.run')).some(li => li.style.display !== 'none');
+      section.style.display = (classOk && anyVisible) ? '' : 'none';
+    });
+  }
+
+  function syncFilterButtons() {
+    document.querySelectorAll('.filters-class button').forEach(b => {
+      b.classList.toggle('active', b.dataset.filter === classFilter);
+    });
+    document.querySelectorAll('.filters-color button').forEach(b => {
+      b.classList.toggle('active', b.dataset.color === colorFilter);
+    });
+  }
+
+  document.querySelectorAll('.filters-class button').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.grade-section').forEach(section => {
-        section.style.display = (filter === 'all' || section.dataset.grade === filter) ? '' : 'none';
-      });
+      classFilter = btn.dataset.filter;
+      syncFilterButtons(); applyFilters(); persistFilters();
     });
   });
+  document.querySelectorAll('.filters-color button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      colorFilter = btn.dataset.color;
+      syncFilterButtons(); applyFilters(); persistFilters();
+    });
+  });
+  syncFilterButtons();
 
   // Apply flow color + CFS reading to each run.
   // flow.js is generated by scripts/refresh-flows.py.
@@ -1099,6 +1229,16 @@
     }
   }
   applyFlows();
+  applyFilters();
+
+  // About modal — methodology
+  const aboutModal = document.getElementById('about-modal');
+  function openAbout() { aboutModal.classList.add('open'); aboutModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+  function closeAbout() { aboutModal.classList.remove('open'); aboutModal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  document.getElementById('about-link').addEventListener('click', e => { e.preventDefault(); openAbout(); });
+  aboutModal.querySelector('.modal-close').addEventListener('click', closeAbout);
+  aboutModal.addEventListener('click', e => { if (e.target === aboutModal) closeAbout(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && aboutModal.classList.contains('open')) closeAbout(); });
 
   // Flow-graph modal: tap a row → show the Dreamflows PNG inline.
   const modal = document.getElementById('flow-modal');
