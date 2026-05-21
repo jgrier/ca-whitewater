@@ -1118,23 +1118,52 @@
 
 <script src="flows.js"></script>
 <script>
-  // Filters — persisted across reloads via localStorage. classFilter
-  // hides whole grade-sections; colorFilter hides individual runs by
-  // their flow-class. Both compose (Class III AND green is allowed).
-  const FILTER_KEY = 'cawhitewater.filters.v1';
-  const saved = (() => { try { return JSON.parse(localStorage.getItem(FILTER_KEY)) || {}; } catch (_) { return {}; } })();
-  let classFilter = saved.class || 'all';
-  let colorFilter = saved.color || 'all';
+  // Filters — multi-select for both class and color. "All" is a special
+  // value that clears the others; toggling any specific class/color
+  // deselects "All". Deselecting everything falls back to "All".
+  // Stored as arrays in localStorage. Both rows compose: (Class III OR IV)
+  // AND (Green OR Red) etc.
+  const FILTER_KEY = 'cawhitewater.filters.v2';
+  const OLD_FILTER_KEY = 'cawhitewater.filters.v1';
+
+  const saved = (() => {
+    try {
+      const v2 = localStorage.getItem(FILTER_KEY);
+      if (v2) return JSON.parse(v2);
+      const v1 = localStorage.getItem(OLD_FILTER_KEY);
+      if (v1) {
+        const o = JSON.parse(v1);
+        localStorage.removeItem(OLD_FILTER_KEY);
+        return {classes: [o.class || 'all'], colors: [o.color || 'all']};
+      }
+    } catch (_) {}
+    return {};
+  })();
+  let classFilters = (Array.isArray(saved.classes) && saved.classes.length) ? saved.classes : ['all'];
+  let colorFilters = (Array.isArray(saved.colors) && saved.colors.length) ? saved.colors : ['all'];
 
   function persistFilters() {
-    try { localStorage.setItem(FILTER_KEY, JSON.stringify({class: classFilter, color: colorFilter})); } catch (_) {}
+    try { localStorage.setItem(FILTER_KEY, JSON.stringify({classes: classFilters, colors: colorFilters})); } catch (_) {}
+  }
+
+  function toggleSelection(list, value) {
+    if (value === 'all') return ['all'];
+    let next = list.filter(v => v !== 'all');
+    if (next.includes(value)) next = next.filter(v => v !== value);
+    else next.push(value);
+    return next.length === 0 ? ['all'] : next;
+  }
+
+  function classMatches(grade) { return classFilters.includes('all') || classFilters.includes(grade); }
+  function colorMatches(li) {
+    if (colorFilters.includes('all')) return true;
+    return colorFilters.some(c => li.classList.contains('flow-' + c));
   }
 
   function applyFilters() {
-    // Per-run visibility (color filter)
+    // Per-run visibility (color filter, OR'd within the row)
     document.querySelectorAll('.run[data-run-id]').forEach(li => {
-      const ok = colorFilter === 'all' || li.classList.contains('flow-' + colorFilter);
-      li.style.display = ok ? '' : 'none';
+      li.style.display = colorMatches(li) ? '' : 'none';
     });
     // Hide tier headers + lists with no visible runs
     document.querySelectorAll('.tier-label').forEach(label => {
@@ -1146,7 +1175,7 @@
     });
     // Class-section visibility: combine class filter AND "section has any visible run"
     document.querySelectorAll('.grade-section').forEach(section => {
-      const classOk = classFilter === 'all' || section.dataset.grade === classFilter;
+      const classOk = classMatches(section.dataset.grade);
       const anyVisible = Array.from(section.querySelectorAll('.run')).some(li => li.style.display !== 'none');
       section.style.display = (classOk && anyVisible) ? '' : 'none';
     });
@@ -1154,22 +1183,22 @@
 
   function syncFilterButtons() {
     document.querySelectorAll('.filters-class button').forEach(b => {
-      b.classList.toggle('active', b.dataset.filter === classFilter);
+      b.classList.toggle('active', classFilters.includes(b.dataset.filter));
     });
     document.querySelectorAll('.filters-color button').forEach(b => {
-      b.classList.toggle('active', b.dataset.color === colorFilter);
+      b.classList.toggle('active', colorFilters.includes(b.dataset.color));
     });
   }
 
   document.querySelectorAll('.filters-class button').forEach(btn => {
     btn.addEventListener('click', () => {
-      classFilter = btn.dataset.filter;
+      classFilters = toggleSelection(classFilters, btn.dataset.filter);
       syncFilterButtons(); applyFilters(); persistFilters();
     });
   });
   document.querySelectorAll('.filters-color button').forEach(btn => {
     btn.addEventListener('click', () => {
-      colorFilter = btn.dataset.color;
+      colorFilters = toggleSelection(colorFilters, btn.dataset.color);
       syncFilterButtons(); applyFilters(); persistFilters();
     });
   });
