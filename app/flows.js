@@ -1,5 +1,5 @@
 window.FLOWS = {
-  "generated_at": "2026-08-19T13:32:09Z",
+  "generated_at": "2026-08-19T14:08:44Z",
   "flows": {
     "lower-american-ii": {
       "name": "American at Fair Oaks",
@@ -7,9 +7,9 @@ window.FLOWS = {
       "good_min": 1500,
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.076.php",
-      "cfs": 4510.0,
-      "ts": "2026-08-19 06:00",
-      "src": "dreamflows"
+      "cfs": 4490.0,
+      "ts": "2026-08-19T07:00:00.000-07:00",
+      "src": "usgs"
     },
     "ef-carson-overnight-ii": {
       "name": "EF Carson near Markleeville",
@@ -17,9 +17,9 @@ window.FLOWS = {
       "good_min": 700,
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.127.php",
-      "cfs": 66.0,
-      "ts": "2026-08-19 06:15",
-      "src": "dreamflows"
+      "cfs": 63.6,
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "klamath-iron-gate-sarah": {
       "name": "Klamath below Iron Gate",
@@ -28,8 +28,8 @@ window.FLOWS = {
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.003.php",
       "cfs": 901.0,
-      "ts": "2026-08-19 05:15",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:15:00.000-07:00",
+      "src": "usgs"
     },
     "trinity-lewiston-junction": {
       "name": "Trinity at Lewiston",
@@ -38,8 +38,8 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.008.php",
       "cfs": 444.0,
-      "ts": "2026-08-19 06:00",
-      "src": "dreamflows"
+      "ts": "2026-08-19T07:00:00.000-07:00",
+      "src": "usgs"
     },
     "mokelumne-electra-ii": {
       "name": "Mokelumne below Electra PH",
@@ -68,8 +68,8 @@ window.FLOWS = {
       "good_max": 15000,
       "link": "https://www.dreamflows.com/graphs/day.089.php",
       "cfs": 10700.0,
-      "ts": "2026-08-19 06:00",
-      "src": "dreamflows"
+      "ts": "2026-08-19T07:00:00.000-07:00",
+      "src": "usgs"
     },
     "russian-cloverdale-healdsburg": {
       "name": "Russian near Cloverdale",
@@ -78,8 +78,8 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.286.php",
       "cfs": 123.0,
-      "ts": "2026-08-19 06:00",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:00:00.000-07:00",
+      "src": "usgs"
     },
     "stanislaus-camp-9-parrotts": {
       "name": "Stanislaus at Camp Nine",
@@ -97,9 +97,9 @@ window.FLOWS = {
       "good_min": 1000,
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.255.php",
-      "cfs": 502.0,
-      "ts": "2026-08-19 06:00",
-      "src": "dreamflows"
+      "cfs": 484.0,
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "klamath-sarah-happy-camp": {
       "name": "Klamath below Iron Gate (proxy)",
@@ -107,15 +107,18 @@ window.FLOWS = {
       "good_min": 1500,
       "good_max": 5000,
       "link": "https://www.dreamflows.com/graphs/day.003.php",
-      "cfs": 901.0,
-      "ts": "2026-08-19 05:15",
-      "src": "dreamflows"
+      "cfs": 1080.0,
+      "ts": "2026-08-19T07:00:00.000-07:00",
+      "src": "usgs"
     },
     "truckee-tahoe-river-ranch": {
       "name": "Truckee at Tahoe City",
       "low_min": 150,
       "good_min": 300,
-      "good_max": 800
+      "good_max": 800,
+      "cfs": 279.0,
+      "ts": "2026-08-19T07:00:00.000-07:00",
+      "src": "usgs"
     },
     "cache-creek-upper": {
       "name": "Cache Creek below Clear Lake",
@@ -134,8 +137,8 @@ window.FLOWS = {
       "good_max": 8000,
       "link": "https://www.dreamflows.com/graphs/day.001.php",
       "cfs": 245.0,
-      "ts": "2026-08-19 05:45",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "cosumnes-michigan-bar": {
       "name": "Cosumnes at Michigan Bar",
@@ -143,9 +146,9 @@ window.FLOWS = {
       "good_min": 800,
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.077.php",
-      "cfs": 42.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "cfs": 41.7,
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "sf-eel-leggett-piercy": {
       "name": "SF Eel at Leggett",
@@ -154,8 +157,8 @@ window.FLOWS = {
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.024.php",
       "cfs": 18.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "bear-river-dog-bar": {
       "name": "Bear at Hwy 174 Bridge",
@@ -164,14 +167,17 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.067.php",
       "cfs": 200.0,
-      "ts": "2026-08-19 05:30",
+      "ts": "2026-08-19 06:30",
       "src": "dreamflows"
     },
     "putah-creek-below-monticello": {
       "name": "Putah Creek near Winters",
       "low_min": 300,
       "good_min": 450,
-      "good_max": 900
+      "good_max": 900,
+      "cfs": 509.0,
+      "ts": "2026-08-19T06:00:00.000-07:00",
+      "src": "usgs"
     },
     "west-carson": {
       "name": "W Carson at Woodfords",
@@ -179,9 +185,9 @@ window.FLOWS = {
       "good_min": 300,
       "good_max": 800,
       "link": "https://www.dreamflows.com/graphs/day.714.php",
-      "cfs": 13.0,
-      "ts": "2026-08-19 06:00",
-      "src": "dreamflows"
+      "cfs": 13.4,
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "owens-pleasant-valley-bishop": {
       "name": "Owens at Pleasant Valley",
@@ -202,9 +208,9 @@ window.FLOWS = {
       "good_min": 1000,
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.018.php",
-      "cfs": 6.0,
-      "ts": "2026-08-19 05:15",
-      "src": "dreamflows"
+      "cfs": 5.65,
+      "ts": "2026-08-19T06:15:00.000-07:00",
+      "src": "usgs"
     },
     "walker-main-stem": {
       "name": "W Walker below L Walker",
@@ -212,9 +218,9 @@ window.FLOWS = {
       "good_min": 500,
       "good_max": 1200,
       "link": "https://www.dreamflows.com/graphs/day.140.php",
-      "cfs": 45.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "cfs": 44.5,
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "feather-oroville-thermalito": {
       "name": "Feather at Oroville (no df gauge)",
@@ -228,8 +234,8 @@ window.FLOWS = {
       "good_min": 1200,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.075.php",
-      "cfs": 1070.0,
-      "ts": "2026-08-19 06:15",
+      "cfs": 923.0,
+      "ts": "2026-08-19 06:45",
       "src": "dreamflows"
     },
     "upper-sac-box-sims-iii": {
@@ -239,14 +245,17 @@ window.FLOWS = {
       "good_max": 3500,
       "link": "https://www.dreamflows.com/graphs/day.040.php",
       "cfs": 211.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "truckee-floriston": {
       "name": "Truckee at Farad",
       "low_min": 400,
       "good_min": 800,
-      "good_max": 2500
+      "good_max": 2500,
+      "cfs": 503.0,
+      "ts": "2026-08-19T07:00:00.000-07:00",
+      "src": "usgs"
     },
     "kings-banzai-iii": {
       "name": "Kings at Rodgers Crossing",
@@ -255,7 +264,7 @@ window.FLOWS = {
       "good_max": 8000,
       "link": "https://www.dreamflows.com/graphs/day.100.php",
       "cfs": 218.0,
-      "ts": "2026-08-19 05:00",
+      "ts": "2026-08-19 06:00",
       "src": "dreamflows"
     },
     "klamath-hells-corner-iii": {
@@ -265,8 +274,8 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.519.php",
       "cfs": 853.0,
-      "ts": "2026-08-19 04:45",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "cache-rumsey": {
       "name": "Cache at Rumsey Bridge",
@@ -275,8 +284,8 @@ window.FLOWS = {
       "good_max": 3500,
       "link": "https://www.dreamflows.com/graphs/day.587.php",
       "cfs": 484.0,
-      "ts": "2026-08-19 04:45",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "trinity-pigeon-point": {
       "name": "Trinity above North Fork",
@@ -284,9 +293,9 @@ window.FLOWS = {
       "good_min": 1500,
       "good_max": 5000,
       "link": "https://www.dreamflows.com/graphs/day.045.php",
-      "cfs": 421.0,
-      "ts": "2026-08-19 05:45",
-      "src": "dreamflows"
+      "cfs": 484.0,
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "lower-kern-jungle-run": {
       "name": "Kern below Isabella",
@@ -315,8 +324,8 @@ window.FLOWS = {
       "good_max": 3500,
       "link": "https://www.dreamflows.com/graphs/day.006.php",
       "cfs": 199.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "sf-eel-big-bend-piercy": {
       "name": "SF Eel at Leggett",
@@ -325,8 +334,8 @@ window.FLOWS = {
       "good_max": 6000,
       "link": "https://www.dreamflows.com/graphs/day.024.php",
       "cfs": 18.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "main-eel-dos-rios-alderpoint": {
       "name": "Eel at Fort Seward",
@@ -334,9 +343,9 @@ window.FLOWS = {
       "good_min": 2000,
       "good_max": 8000,
       "link": "https://www.dreamflows.com/graphs/day.022.php",
-      "cfs": 26.0,
-      "ts": "2026-08-19 05:15",
-      "src": "dreamflows"
+      "cfs": 26.1,
+      "ts": "2026-08-19T06:15:00.000-07:00",
+      "src": "usgs"
     },
     "nf-feather-rock-creek": {
       "name": "NF Feather below Rock Creek Dam",
@@ -364,15 +373,18 @@ window.FLOWS = {
       "good_min": 500,
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.421.php",
-      "cfs": 18.0,
-      "ts": "2026-08-19 05:00",
-      "src": "dreamflows"
+      "cfs": 18.8,
+      "ts": "2026-08-19T06:00:00.000-07:00",
+      "src": "usgs"
     },
     "nf-american-shirttail": {
       "name": "NF American at NF Dam",
       "low_min": 400,
       "good_min": 700,
-      "good_max": 2000
+      "good_max": 2000,
+      "cfs": 51.9,
+      "ts": "2026-08-19T06:15:00.000-07:00",
+      "src": "usgs"
     },
     "arroyo-seco": {
       "name": "Arroyo Seco near Greenfield",
@@ -390,28 +402,37 @@ window.FLOWS = {
       "good_min": 500,
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.050.php",
-      "cfs": 14.0,
-      "ts": "2026-08-19 06:00",
-      "src": "dreamflows"
+      "cfs": 14.2,
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "mad-river-ruth": {
       "name": "Mad above Ruth Reservoir",
       "low_min": 400,
       "good_min": 700,
-      "good_max": 2500
+      "good_max": 2500,
+      "cfs": 0.0,
+      "ts": "2026-08-19T06:00:00.000-07:00",
+      "src": "usgs"
     },
     "outlet-tomki": {
       "name": "Eel below Outlet Creek",
       "low_min": 500,
       "good_min": 1200,
       "good_max": 5000,
-      "link": "https://www.dreamflows.com/graphs/day.113.php"
+      "link": "https://www.dreamflows.com/graphs/day.113.php",
+      "cfs": 12.0,
+      "ts": "2026-08-19T06:00:00.000-07:00",
+      "src": "usgs"
     },
     "nf-american-chamberlain": {
       "name": "NF American at NF Dam",
       "low_min": 500,
       "good_min": 900,
-      "good_max": 2500
+      "good_max": 2500,
+      "cfs": 51.9,
+      "ts": "2026-08-19T06:15:00.000-07:00",
+      "src": "usgs"
     },
     "mf-american-oxbow-greenwood-iv": {
       "name": "MF American Oxbow PH release",
@@ -470,8 +491,8 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.040.php",
       "cfs": 211.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "goodwin-canyon-iv": {
       "name": "Stanislaus Goodwin Dam schedule",
@@ -480,7 +501,7 @@ window.FLOWS = {
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.758.php",
       "cfs": 250.0,
-      "ts": "2026-08-19 09:30",
+      "ts": "2026-08-19 10:00",
       "src": "dreamflows"
     },
     "nf-smith-low-divide": {
@@ -511,8 +532,8 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.057.php",
       "cfs": 125.0,
-      "ts": "2026-08-19 04:45",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "pit-5": {
       "name": "Pit below Pit 4 Dam (Pit 5 put-in)",
@@ -531,8 +552,8 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.213.php",
       "cfs": 851.0,
-      "ts": "2026-08-19 06:00",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:00:00.000-07:00",
+      "src": "usgs"
     },
     "merced-el-portal-iv": {
       "name": "Merced below Briceburg",
@@ -591,8 +612,8 @@ window.FLOWS = {
       "good_max": 5500,
       "link": "https://www.dreamflows.com/graphs/day.006.php",
       "cfs": 199.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "west-walker-rock-garden": {
       "name": "W Walker below L Walker",
@@ -600,15 +621,18 @@ window.FLOWS = {
       "good_min": 500,
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.140.php",
-      "cfs": 45.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "cfs": 44.5,
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "piru-creek": {
       "name": "Piru above Frenchmans Flat",
       "low_min": 250,
       "good_min": 500,
-      "good_max": 2000
+      "good_max": 2000,
+      "cfs": 164.0,
+      "ts": "2023-05-01T00:45:00.000-07:00",
+      "src": "usgs"
     },
     "sf-merced-snyder": {
       "name": "Merced below Briceburg (SF proxy)",
@@ -627,8 +651,8 @@ window.FLOWS = {
       "good_max": 800,
       "link": "https://www.dreamflows.com/graphs/day.037.php",
       "cfs": 125.0,
-      "ts": "2026-08-19 05:45",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     },
     "sespe-creek": {
       "name": "Sespe near Wheeler Springs",
@@ -636,9 +660,9 @@ window.FLOWS = {
       "good_min": 600,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.687.php",
-      "cfs": 0.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "cfs": 0.35,
+      "ts": "2026-08-19T06:40:00.000-07:00",
+      "src": "usgs"
     },
     "arroyo-valle": {
       "name": "Arroyo Valle below Lang Canyon",
@@ -661,8 +685,8 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.040.php",
       "cfs": 211.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "cherry-creek": {
       "name": "Cherry below Holm Powerhouse",
@@ -671,7 +695,7 @@ window.FLOWS = {
       "good_max": 1400,
       "link": "https://www.dreamflows.com/graphs/day.088.php",
       "cfs": 50.0,
-      "ts": "2026-08-19 06:15",
+      "ts": "2026-08-19 07:00",
       "src": "dreamflows"
     },
     "forks-of-the-kern": {
@@ -711,8 +735,8 @@ window.FLOWS = {
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.009.php",
       "cfs": 531.0,
-      "ts": "2026-08-19 05:00",
-      "src": "dreamflows"
+      "ts": "2026-08-19T07:00:00.000-07:00",
+      "src": "usgs"
     },
     "cal-salmon-nordheimer": {
       "name": "Salmon at Somes Bar",
@@ -721,14 +745,17 @@ window.FLOWS = {
       "good_max": 3500,
       "link": "https://www.dreamflows.com/graphs/day.006.php",
       "cfs": 199.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "giant-gap-nf-american": {
       "name": "NF American at NF Dam",
       "low_min": 700,
       "good_min": 1000,
-      "good_max": 2500
+      "good_max": 2500,
+      "cfs": 51.9,
+      "ts": "2026-08-19T06:15:00.000-07:00",
+      "src": "usgs"
     },
     "fordyce-creek": {
       "name": "Fordyce below Fordyce Dam",
@@ -761,7 +788,10 @@ window.FLOWS = {
       "name": "NF American at NF Dam (downstream proxy)",
       "low_min": 700,
       "good_min": 900,
-      "good_max": 1500
+      "good_max": 1500,
+      "cfs": 51.9,
+      "ts": "2026-08-19T06:15:00.000-07:00",
+      "src": "usgs"
     },
     "upper-kings-garlic-falls": {
       "name": "Kings at Rodgers Crossing",
@@ -770,7 +800,7 @@ window.FLOWS = {
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.100.php",
       "cfs": 218.0,
-      "ts": "2026-08-19 05:00",
+      "ts": "2026-08-19 06:00",
       "src": "dreamflows"
     },
     "middle-kings": {
@@ -780,7 +810,7 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.100.php",
       "cfs": 218.0,
-      "ts": "2026-08-19 05:00",
+      "ts": "2026-08-19 06:00",
       "src": "dreamflows"
     },
     "sf-american-golden-gate": {
@@ -810,7 +840,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.684.php",
       "cfs": 1.0,
-      "ts": "2026-08-19 06:15",
+      "ts": "2026-08-19 07:00",
       "src": "dreamflows"
     },
     "nf-mokelumne-devils-nose": {
@@ -840,7 +870,7 @@ window.FLOWS = {
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.133.php",
       "cfs": 347.0,
-      "ts": "2026-08-19 06:00",
+      "ts": "2026-08-19 06:30",
       "src": "dreamflows"
     },
     "mf-stanislaus-sandbar-camp-9": {
@@ -887,7 +917,7 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.100.php",
       "cfs": 218.0,
-      "ts": "2026-08-19 05:00",
+      "ts": "2026-08-19 06:00",
       "src": "dreamflows"
     },
     "mf-ef-kaweah": {
@@ -897,7 +927,7 @@ window.FLOWS = {
       "good_max": 1200,
       "link": "https://www.dreamflows.com/graphs/day.363.php",
       "cfs": 14.0,
-      "ts": "2026-08-19 05:15",
+      "ts": "2026-08-19 06:15",
       "src": "dreamflows"
     },
     "big-kimshew-creek": {
@@ -907,7 +937,7 @@ window.FLOWS = {
       "good_max": 1050,
       "link": "https://www.dreamflows.com/graphs/day.529.php",
       "cfs": 0.0,
-      "ts": "2026-08-19 05:15",
+      "ts": "2026-08-19 05:45",
       "src": "dreamflows"
     },
     "butte-creek": {
@@ -916,9 +946,9 @@ window.FLOWS = {
       "good_min": 400,
       "good_max": 1200,
       "link": "https://www.dreamflows.com/graphs/day.123.php",
-      "cfs": 151.0,
-      "ts": "2026-08-19 05:00",
-      "src": "dreamflows"
+      "cfs": 142.0,
+      "ts": "2026-08-19T06:00:00.000-07:00",
+      "src": "usgs"
     },
     "sf-cal-salmon-limestone-bluffs": {
       "name": "Salmon at Somes Bar (proxy)",
@@ -927,8 +957,8 @@ window.FLOWS = {
       "good_max": 6000,
       "link": "https://www.dreamflows.com/graphs/day.006.php",
       "cfs": 199.0,
-      "ts": "2026-08-19 05:30",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:30:00.000-07:00",
+      "src": "usgs"
     },
     "smith-river-gorges-sf-mf": {
       "name": "Smith (Jed Smith)",
@@ -937,8 +967,8 @@ window.FLOWS = {
       "good_max": 9000,
       "link": "https://www.dreamflows.com/graphs/day.001.php",
       "cfs": 245.0,
-      "ts": "2026-08-19 05:45",
-      "src": "dreamflows"
+      "ts": "2026-08-19T06:45:00.000-07:00",
+      "src": "usgs"
     }
   }
 };
