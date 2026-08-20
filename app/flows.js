@@ -1,5 +1,5 @@
 window.FLOWS = {
-  "generated_at": "2026-08-20T15:19:28Z",
+  "generated_at": "2026-08-20T15:53:22Z",
   "flows": {
     "lower-american-ii": {
       "name": "American at Fair Oaks",
@@ -7,8 +7,8 @@ window.FLOWS = {
       "good_min": 1500,
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.076.php",
-      "cfs": 4490.0,
-      "ts": "2026-08-20T08:00:00.000-07:00",
+      "cfs": 4470.0,
+      "ts": "2026-08-20T08:45:00.000-07:00",
       "src": "usgs"
     },
     "ef-carson-overnight-ii": {
@@ -18,7 +18,7 @@ window.FLOWS = {
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.127.php",
       "cfs": 60.1,
-      "ts": "2026-08-20T08:00:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "klamath-iron-gate-sarah": {
@@ -28,7 +28,7 @@ window.FLOWS = {
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.003.php",
       "cfs": 895.0,
-      "ts": "2026-08-20T07:15:00.000-07:00",
+      "ts": "2026-08-20T08:15:00.000-07:00",
       "src": "usgs"
     },
     "trinity-lewiston-junction": {
@@ -38,7 +38,7 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.008.php",
       "cfs": 450.0,
-      "ts": "2026-08-20T08:00:00.000-07:00",
+      "ts": "2026-08-20T08:45:00.000-07:00",
       "src": "usgs"
     },
     "mokelumne-electra-ii": {
@@ -57,8 +57,8 @@ window.FLOWS = {
       "good_min": 800,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.105.php",
-      "cfs": 1081.0,
-      "ts": "2026-08-20 07:15",
+      "cfs": 1076.0,
+      "ts": "2026-08-20 08:15",
       "src": "dreamflows"
     },
     "sacramento-redding-anderson": {
@@ -68,7 +68,7 @@ window.FLOWS = {
       "good_max": 15000,
       "link": "https://www.dreamflows.com/graphs/day.089.php",
       "cfs": 10100.0,
-      "ts": "2026-08-20T08:00:00.000-07:00",
+      "ts": "2026-08-20T08:45:00.000-07:00",
       "src": "usgs"
     },
     "russian-cloverdale-healdsburg": {
@@ -78,7 +78,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.286.php",
       "cfs": 118.0,
-      "ts": "2026-08-20T07:00:00.000-07:00",
+      "ts": "2026-08-20T08:00:00.000-07:00",
       "src": "usgs"
     },
     "stanislaus-camp-9-parrotts": {
@@ -117,7 +117,7 @@ window.FLOWS = {
       "good_min": 300,
       "good_max": 800,
       "cfs": 279.0,
-      "ts": "2026-08-20T08:00:00.000-07:00",
+      "ts": "2026-08-20T08:45:00.000-07:00",
       "src": "usgs"
     },
     "cache-creek-upper": {
@@ -126,8 +126,8 @@ window.FLOWS = {
       "good_min": 500,
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.394.php",
-      "cfs": 276.0,
-      "ts": "2026-08-20 07:30",
+      "cfs": 273.0,
+      "ts": "2026-08-20 08:30",
       "src": "dreamflows"
     },
     "smith-jed-smith-mouth": {
@@ -146,8 +146,8 @@ window.FLOWS = {
       "good_min": 800,
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.077.php",
-      "cfs": 40.6,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "cfs": 41.7,
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "sf-eel-leggett-piercy": {
@@ -157,7 +157,7 @@ window.FLOWS = {
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.024.php",
       "cfs": 18.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "bear-river-dog-bar": {
@@ -167,7 +167,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.067.php",
       "cfs": 172.0,
-      "ts": "2026-08-20 07:30",
+      "ts": "2026-08-20 08:30",
       "src": "dreamflows"
     },
     "putah-creek-below-monticello": {
@@ -185,8 +185,8 @@ window.FLOWS = {
       "good_min": 300,
       "good_max": 800,
       "link": "https://www.dreamflows.com/graphs/day.714.php",
-      "cfs": 13.1,
-      "ts": "2026-08-20T08:00:00.000-07:00",
+      "cfs": 13.4,
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "owens-pleasant-valley-bishop": {
@@ -209,7 +209,7 @@ window.FLOWS = {
       "good_max": 4000,
       "link": "https://www.dreamflows.com/graphs/day.018.php",
       "cfs": 5.65,
-      "ts": "2026-08-20T07:15:00.000-07:00",
+      "ts": "2026-08-20T08:15:00.000-07:00",
       "src": "usgs"
     },
     "walker-main-stem": {
@@ -219,7 +219,7 @@ window.FLOWS = {
       "good_max": 1200,
       "link": "https://www.dreamflows.com/graphs/day.140.php",
       "cfs": 43.7,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "feather-oroville-thermalito": {
@@ -234,8 +234,8 @@ window.FLOWS = {
       "good_min": 1200,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.075.php",
-      "cfs": 1109.0,
-      "ts": "2026-08-20 08:00",
+      "cfs": 1352.0,
+      "ts": "2026-08-20 08:30",
       "src": "dreamflows"
     },
     "upper-sac-box-sims-iii": {
@@ -245,7 +245,7 @@ window.FLOWS = {
       "good_max": 3500,
       "link": "https://www.dreamflows.com/graphs/day.040.php",
       "cfs": 211.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "truckee-floriston": {
@@ -253,8 +253,8 @@ window.FLOWS = {
       "low_min": 400,
       "good_min": 800,
       "good_max": 2500,
-      "cfs": 497.0,
-      "ts": "2026-08-20T08:00:00.000-07:00",
+      "cfs": 503.0,
+      "ts": "2026-08-20T08:45:00.000-07:00",
       "src": "usgs"
     },
     "kings-banzai-iii": {
@@ -263,8 +263,8 @@ window.FLOWS = {
       "good_min": 1500,
       "good_max": 8000,
       "link": "https://www.dreamflows.com/graphs/day.100.php",
-      "cfs": 213.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 214.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "klamath-hells-corner-iii": {
@@ -274,7 +274,7 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.519.php",
       "cfs": 853.0,
-      "ts": "2026-08-20T07:45:00.000-07:00",
+      "ts": "2026-08-20T08:45:00.000-07:00",
       "src": "usgs"
     },
     "cache-rumsey": {
@@ -303,8 +303,8 @@ window.FLOWS = {
       "good_min": 1000,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.105.php",
-      "cfs": 1081.0,
-      "ts": "2026-08-20 07:15",
+      "cfs": 1076.0,
+      "ts": "2026-08-20 08:15",
       "src": "dreamflows"
     },
     "mccloud-ah-di-na": {
@@ -314,7 +314,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.043.php",
       "cfs": 188.0,
-      "ts": "2026-08-20 06:00",
+      "ts": "2026-08-20 07:00",
       "src": "dreamflows"
     },
     "cal-salmon-sf": {
@@ -324,7 +324,7 @@ window.FLOWS = {
       "good_max": 3500,
       "link": "https://www.dreamflows.com/graphs/day.006.php",
       "cfs": 196.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "sf-eel-big-bend-piercy": {
@@ -334,7 +334,7 @@ window.FLOWS = {
       "good_max": 6000,
       "link": "https://www.dreamflows.com/graphs/day.024.php",
       "cfs": 18.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "main-eel-dos-rios-alderpoint": {
@@ -353,8 +353,8 @@ window.FLOWS = {
       "good_min": 800,
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.051.php",
-      "cfs": 451.0,
-      "ts": "2026-08-20 05:00",
+      "cfs": 449.0,
+      "ts": "2026-08-20 06:00",
       "src": "dreamflows"
     },
     "upper-kern-camp-3-limestone": {
@@ -363,8 +363,8 @@ window.FLOWS = {
       "good_min": 800,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.104.php",
-      "cfs": 204.0,
-      "ts": "2026-08-20 07:15",
+      "cfs": 196.0,
+      "ts": "2026-08-20 08:15",
       "src": "dreamflows"
     },
     "alameda-creek-sunol-niles": {
@@ -373,8 +373,8 @@ window.FLOWS = {
       "good_min": 500,
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.421.php",
-      "cfs": 19.4,
-      "ts": "2026-08-20T07:00:00.000-07:00",
+      "cfs": 20.1,
+      "ts": "2026-08-20T08:00:00.000-07:00",
       "src": "usgs"
     },
     "nf-american-shirttail": {
@@ -383,7 +383,7 @@ window.FLOWS = {
       "good_min": 700,
       "good_max": 2000,
       "cfs": 48.4,
-      "ts": "2026-08-20T07:15:00.000-07:00",
+      "ts": "2026-08-20T08:15:00.000-07:00",
       "src": "usgs"
     },
     "arroyo-seco": {
@@ -393,7 +393,7 @@ window.FLOWS = {
       "good_max": 500,
       "link": "https://www.dreamflows.com/graphs/day.239.php",
       "cfs": 2.0,
-      "ts": "2026-08-20 07:15",
+      "ts": "2026-08-20 08:15",
       "src": "dreamflows"
     },
     "little-sur-river": {
@@ -403,7 +403,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.050.php",
       "cfs": 13.8,
-      "ts": "2026-08-20T08:00:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "mad-river-ruth": {
@@ -431,7 +431,7 @@ window.FLOWS = {
       "good_min": 900,
       "good_max": 2500,
       "cfs": 48.4,
-      "ts": "2026-08-20T07:15:00.000-07:00",
+      "ts": "2026-08-20T08:15:00.000-07:00",
       "src": "usgs"
     },
     "mf-american-oxbow-greenwood-iv": {
@@ -440,8 +440,8 @@ window.FLOWS = {
       "good_min": 1200,
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.070.php",
-      "cfs": 991.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 1010.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "tuolumne-main": {
@@ -450,8 +450,8 @@ window.FLOWS = {
       "good_min": 2200,
       "good_max": 2800,
       "link": "https://www.dreamflows.com/graphs/day.090.php",
-      "cfs": 184.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 241.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "upper-kern-thunder-run": {
@@ -460,8 +460,8 @@ window.FLOWS = {
       "good_min": 900,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.682.php",
-      "cfs": 144.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 143.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "lower-kern-miracle-democrat": {
@@ -470,8 +470,8 @@ window.FLOWS = {
       "good_min": 1000,
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.105.php",
-      "cfs": 1081.0,
-      "ts": "2026-08-20 07:15",
+      "cfs": 1076.0,
+      "ts": "2026-08-20 08:15",
       "src": "dreamflows"
     },
     "kaweah-upper-6": {
@@ -481,7 +481,7 @@ window.FLOWS = {
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.103.php",
       "cfs": 46.0,
-      "ts": "2026-08-20 07:00",
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "upper-sac-box-gibson": {
@@ -491,7 +491,7 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.040.php",
       "cfs": 211.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "goodwin-canyon-iv": {
@@ -501,7 +501,7 @@ window.FLOWS = {
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.758.php",
       "cfs": 200.0,
-      "ts": "2026-08-20 11:15",
+      "ts": "2026-08-20 11:45",
       "src": "dreamflows"
     },
     "nf-smith-low-divide": {
@@ -541,8 +541,8 @@ window.FLOWS = {
       "good_min": 1000,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.049.php",
-      "cfs": 435.0,
-      "ts": "2026-08-20 04:00",
+      "cfs": 432.0,
+      "ts": "2026-08-20 05:00",
       "src": "dreamflows"
     },
     "pit-falls": {
@@ -561,8 +561,8 @@ window.FLOWS = {
       "good_min": 3000,
       "good_max": 5000,
       "link": "https://www.dreamflows.com/graphs/day.225.php",
-      "cfs": 58.0,
-      "ts": "2026-08-20 07:15",
+      "cfs": 59.0,
+      "ts": "2026-08-20 08:15",
       "src": "dreamflows"
     },
     "sf-yuba-bridgeport": {
@@ -572,7 +572,7 @@ window.FLOWS = {
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.065.php",
       "cfs": 41.0,
-      "ts": "2026-08-20 05:00",
+      "ts": "2026-08-20 06:00",
       "src": "dreamflows"
     },
     "upper-mccloud-fowler": {
@@ -582,7 +582,7 @@ window.FLOWS = {
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.043.php",
       "cfs": 188.0,
-      "ts": "2026-08-20 06:00",
+      "ts": "2026-08-20 07:00",
       "src": "dreamflows"
     },
     "nf-mokelumne-tiger": {
@@ -592,7 +592,7 @@ window.FLOWS = {
       "good_max": 1200,
       "link": "https://www.dreamflows.com/graphs/day.385.php",
       "cfs": 106.0,
-      "ts": "2026-08-20 05:00",
+      "ts": "2026-08-20 06:00",
       "src": "dreamflows"
     },
     "sf-yuba-edwards-washington": {
@@ -602,7 +602,7 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.065.php",
       "cfs": 41.0,
-      "ts": "2026-08-20 05:00",
+      "ts": "2026-08-20 06:00",
       "src": "dreamflows"
     },
     "sf-cal-salmon-limestone-matthews": {
@@ -612,7 +612,7 @@ window.FLOWS = {
       "good_max": 5500,
       "link": "https://www.dreamflows.com/graphs/day.006.php",
       "cfs": 196.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "west-walker-rock-garden": {
@@ -622,7 +622,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.140.php",
       "cfs": 43.7,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "piru-creek": {
@@ -640,8 +640,8 @@ window.FLOWS = {
       "good_min": 2500,
       "good_max": 5000,
       "link": "https://www.dreamflows.com/graphs/day.225.php",
-      "cfs": 58.0,
-      "ts": "2026-08-20 07:15",
+      "cfs": 59.0,
+      "ts": "2026-08-20 08:15",
       "src": "dreamflows"
     },
     "clear-creek-whiskeytown": {
@@ -661,7 +661,7 @@ window.FLOWS = {
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.687.php",
       "cfs": 0.31,
-      "ts": "2026-08-20T07:40:00.000-07:00",
+      "ts": "2026-08-20T08:40:00.000-07:00",
       "src": "usgs"
     },
     "arroyo-valle": {
@@ -685,7 +685,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.040.php",
       "cfs": 211.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "cherry-creek": {
@@ -695,7 +695,7 @@ window.FLOWS = {
       "good_max": 1400,
       "link": "https://www.dreamflows.com/graphs/day.088.php",
       "cfs": 1064.0,
-      "ts": "2026-08-20 08:00",
+      "ts": "2026-08-20 08:45",
       "src": "dreamflows"
     },
     "forks-of-the-kern": {
@@ -704,8 +704,8 @@ window.FLOWS = {
       "good_min": 800,
       "good_max": 3000,
       "link": "https://www.dreamflows.com/graphs/day.681.php",
-      "cfs": 200.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 199.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "mf-feather-devils-canyon": {
@@ -715,7 +715,7 @@ window.FLOWS = {
       "good_max": 2300,
       "link": "https://www.dreamflows.com/graphs/day.054.php",
       "cfs": 188.0,
-      "ts": "2026-08-20 07:00",
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "mf-feather-bald-rock": {
@@ -725,7 +725,7 @@ window.FLOWS = {
       "good_max": 925,
       "link": "https://www.dreamflows.com/graphs/day.054.php",
       "cfs": 188.0,
-      "ts": "2026-08-20 07:00",
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "burnt-ranch-gorge": {
@@ -745,7 +745,7 @@ window.FLOWS = {
       "good_max": 3500,
       "link": "https://www.dreamflows.com/graphs/day.006.php",
       "cfs": 196.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "giant-gap-nf-american": {
@@ -754,7 +754,7 @@ window.FLOWS = {
       "good_min": 1000,
       "good_max": 2500,
       "cfs": 48.4,
-      "ts": "2026-08-20T07:15:00.000-07:00",
+      "ts": "2026-08-20T08:15:00.000-07:00",
       "src": "usgs"
     },
     "fordyce-creek": {
@@ -774,7 +774,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.103.php",
       "cfs": 46.0,
-      "ts": "2026-08-20 07:00",
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "dinkey-creek": {
@@ -790,7 +790,7 @@ window.FLOWS = {
       "good_min": 900,
       "good_max": 1500,
       "cfs": 48.4,
-      "ts": "2026-08-20T07:15:00.000-07:00",
+      "ts": "2026-08-20T08:15:00.000-07:00",
       "src": "usgs"
     },
     "upper-kings-garlic-falls": {
@@ -799,8 +799,8 @@ window.FLOWS = {
       "good_min": 1200,
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.100.php",
-      "cfs": 213.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 214.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "middle-kings": {
@@ -809,8 +809,8 @@ window.FLOWS = {
       "good_min": 1200,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.100.php",
-      "cfs": 213.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 214.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "sf-american-golden-gate": {
@@ -820,7 +820,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.184.php",
       "cfs": 21.0,
-      "ts": "2026-08-20 07:00",
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "sf-american-slab-creek-v": {
@@ -829,8 +829,8 @@ window.FLOWS = {
       "good_min": 1400,
       "good_max": 1600,
       "link": "https://www.dreamflows.com/graphs/day.074.php",
-      "cfs": 81.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 80.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "rubicon": {
@@ -840,7 +840,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.684.php",
       "cfs": 1.0,
-      "ts": "2026-08-20 08:00",
+      "ts": "2026-08-20 08:45",
       "src": "dreamflows"
     },
     "nf-mokelumne-devils-nose": {
@@ -850,7 +850,7 @@ window.FLOWS = {
       "good_max": 1500,
       "link": "https://www.dreamflows.com/graphs/day.384.php",
       "cfs": 72.0,
-      "ts": "2026-08-20 05:00",
+      "ts": "2026-08-20 06:00",
       "src": "dreamflows"
     },
     "south-silver-creek": {
@@ -860,7 +860,7 @@ window.FLOWS = {
       "good_max": 200,
       "link": "https://www.dreamflows.com/graphs/day.699.php",
       "cfs": 0.0,
-      "ts": "2026-08-20 07:00",
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "nf-stanislaus-boards-v": {
@@ -869,8 +869,8 @@ window.FLOWS = {
       "good_min": 1400,
       "good_max": 2000,
       "link": "https://www.dreamflows.com/graphs/day.133.php",
-      "cfs": 378.0,
-      "ts": "2026-08-20 07:30",
+      "cfs": 381.0,
+      "ts": "2026-08-20 08:30",
       "src": "dreamflows"
     },
     "mf-stanislaus-sandbar-camp-9": {
@@ -880,7 +880,7 @@ window.FLOWS = {
       "good_max": 2300,
       "link": "https://www.dreamflows.com/graphs/day.083.php",
       "cfs": 121.0,
-      "ts": "2026-08-20 05:00",
+      "ts": "2026-08-20 06:00",
       "src": "dreamflows"
     },
     "nf-feather-tobin-v": {
@@ -889,8 +889,8 @@ window.FLOWS = {
       "good_min": 2000,
       "good_max": 3500,
       "link": "https://www.dreamflows.com/graphs/day.759.php",
-      "cfs": 156.0,
-      "ts": "2026-08-20 05:00",
+      "cfs": 155.0,
+      "ts": "2026-08-20 06:00",
       "src": "dreamflows"
     },
     "dry-meadow-teacups": {
@@ -916,8 +916,8 @@ window.FLOWS = {
       "good_min": 1000,
       "good_max": 2500,
       "link": "https://www.dreamflows.com/graphs/day.100.php",
-      "cfs": 213.0,
-      "ts": "2026-08-20 07:00",
+      "cfs": 214.0,
+      "ts": "2026-08-20 08:00",
       "src": "dreamflows"
     },
     "mf-ef-kaweah": {
@@ -927,7 +927,7 @@ window.FLOWS = {
       "good_max": 1200,
       "link": "https://www.dreamflows.com/graphs/day.363.php",
       "cfs": 14.0,
-      "ts": "2026-08-20 07:15",
+      "ts": "2026-08-20 08:15",
       "src": "dreamflows"
     },
     "big-kimshew-creek": {
@@ -937,7 +937,7 @@ window.FLOWS = {
       "good_max": 1050,
       "link": "https://www.dreamflows.com/graphs/day.529.php",
       "cfs": 29.0,
-      "ts": "2026-08-20 06:30",
+      "ts": "2026-08-20 07:30",
       "src": "dreamflows"
     },
     "butte-creek": {
@@ -946,8 +946,8 @@ window.FLOWS = {
       "good_min": 400,
       "good_max": 1200,
       "link": "https://www.dreamflows.com/graphs/day.123.php",
-      "cfs": 145.0,
-      "ts": "2026-08-20T07:00:00.000-07:00",
+      "cfs": 142.0,
+      "ts": "2026-08-20T08:00:00.000-07:00",
       "src": "usgs"
     },
     "sf-cal-salmon-limestone-bluffs": {
@@ -957,7 +957,7 @@ window.FLOWS = {
       "good_max": 6000,
       "link": "https://www.dreamflows.com/graphs/day.006.php",
       "cfs": 196.0,
-      "ts": "2026-08-20T07:30:00.000-07:00",
+      "ts": "2026-08-20T08:30:00.000-07:00",
       "src": "usgs"
     },
     "smith-river-gorges-sf-mf": {
